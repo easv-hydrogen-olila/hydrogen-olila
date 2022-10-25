@@ -52,11 +52,12 @@ export function Layout ({children}) {
 
 
 
-const SHOP_QUERY = gql`
-  query ShopInfo {
-    shop {
-      name
-      description
-    }
-  }
-`;
+
+// const SHOP_QUERY = gql`
+//   query ShopInfo {
+//     shop {
+//       name
+//       description
+//     }
+//   }
+// `;
