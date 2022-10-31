@@ -1,12 +1,13 @@
 import { useShopQuery, CacheLong, gql, useUrl, Link, Seo } from "@shopify/hydrogen";
 import { Suspense } from "react";
+import type {Menu, Shop} from '@shopify/hydrogen/storefront-api-types';
 
 export function Layout ({children}) {
     const { pathname } = useUrl();
     const isHome = pathname === "/";
 
     const {
-        data: { shop },
+        data: { shop:Shop },
     } = useShopQuery({
         query: SHOP_QUERY,
         cache: CacheLong(),
