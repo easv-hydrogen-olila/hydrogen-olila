@@ -10,13 +10,14 @@ import {
   
   import { Layout } from "../../components/Layout.server";
   import ProductDetails from "../../components/ProductDetails.client";
+  import type { Product } from '@shopify/hydrogen/storefront-api-types'
   
   export default function Product({ params }) {
     const { handle } = useRouteParams();
   
     const {
       data: { product },
-    } = useShopQuery({
+    } = useShopQuery <{product: Product }> ({
       query: PRODUCT_QUERY,
       variables: {
         handle,
