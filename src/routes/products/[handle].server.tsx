@@ -12,7 +12,7 @@ import {
   import ProductDetails from "../../components/ProductDetails.client";
   import type { Product } from '@shopify/hydrogen/storefront-api-types'
   
-  export default function Product({ params }) {
+  export default function ProductRoute({ params }) {
     const { handle } = useRouteParams();
   
     const {
