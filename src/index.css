@@ -8,3 +8,24 @@
 body{
     font-family: Montserrat, Helvetica, sans-serif;
 }
+
+.btn{
+    text-transform: uppercase;
+    border-radius: 9999px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 14px 0;
+}
+
+.btn--hero--primary{
+    color: #9A684B;
+    background-color: white;
+}
+
+.btn--hero--primary:hover{
+    color:#4b7d9a;
+}
+
+.btn--medium{
+    padding: 14px 28px;
+}
