@@ -21,16 +21,6 @@ const Hero = (hero:any) => {
           <div className='md:w-1/2'>
             <Image data={hero.image} className='object-cover w-full'/>
           </div>
-          {/* <div className='absolute text-white flex flex-col items-center md:w-1/2'>
-            <div className='mb-6 whitespace-nowrap'>
-              <Heading component='h1' className='uppercase text-clr_primary_variaton text-3xl md:text-5xl font-bold'>{hero.heading?.value}</Heading>
-              <Heading component='h1' className='uppercase text-clr_primary_variaton text-3xl md:text-5xl font-light'>{hero.byline?.value}</Heading>
-            </div>
-            <Button type='button' buttonSize='btn--hero--primary' buttonStyle='btn--medium'>{hero.cta?.value}</Button>
-          </div>
-          <div className='md:w-1/2'>
-            <Image data={hero.image} className='object-cover h-full w-full'/>
-          </div> */}
         </div>
   )
 }

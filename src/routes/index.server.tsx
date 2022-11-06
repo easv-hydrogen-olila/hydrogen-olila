@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import FeaturedCollections from "../sections/FeaturedCollections";
 import Hero from "../sections/Hero";
 import { Layout } from "../components/Layout.server";
+import ShopCategories from "../sections/ShopCategories";
 
 export default function Home() {
   return (
@@ -18,21 +19,29 @@ export default function Home() {
 
 function HomepageContent() {
 
-  const data = useShopQuery <{ herobanners: CollectionConnection}> ({
+  const data = useShopQuery<{ 
+    herobanners: CollectionConnection, 
+    shopcategories: CollectionConnection
+  }>({
     query: HOMEPAGE_CONTENT_QUERY,
     cache: CacheLong(),
     preload: true
   }) 
 
-  const {data: {herobanners: {nodes}}} = data
-  console.log(nodes)
+  // const {data: {herobanners: {nodes}}} = data
+  // const {data: {shopcategories}} = data
+  const {data: {herobanners, shopcategories}} = data
+  // console.log(shopcategories)
 
-  const [primaryHero] = nodes
-
+  //Hero section fetched data, it's an array since more collections might be added
+  const [primaryHero] = herobanners.nodes
+  //Shop categories by age range
+  const shopCategoriesData = shopcategories.nodes
 
   return (
     <>
       <Hero {...primaryHero}/>
+      <ShopCategories data={shopCategoriesData}/>
 
     </>
   )
@@ -56,6 +65,19 @@ query homepage {
         value
       }
       image {
+        altText
+        width
+        height
+        url
+      }
+    }
+  }
+  shopcategories:collections(first: 10 query: "(title:NYFØDT) OR (title:Baby pige) OR (title:Baby dreng) OR (title:Kids pige) OR (title:Kids dreng)"){
+    nodes{
+      id
+      title
+      handle
+      image{
         altText
         width
         height

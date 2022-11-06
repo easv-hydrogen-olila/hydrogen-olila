@@ -23,7 +23,7 @@ export function Layout ({children}) {
                     description: shop.description
             }}/>
         </Suspense>
-        <div className="flex flex-col min-h-screen antialiased bg-neutral-50">
+        <div className="container mx-auto">
             <div className="">
               <a href="#mainContent" className="sr-only">
                 Skip to content
@@ -42,7 +42,7 @@ export function Layout ({children}) {
               </div>
             </header>
     
-            <main role="main" id="mainContent" className="flex-grow">
+            <main role="main" id="mainContent" className="">
               <Suspense>{children}</Suspense>
             </main>
           </div>
