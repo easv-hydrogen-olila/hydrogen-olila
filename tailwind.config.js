@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         clr_primary: '#9A684B',
+        clr_primary_complement: '#4b7d9a',
         clr_primary_variaton:'#EAB787',
         clr_secondary: '#638990',
         clr_dropdown: '#745044',
