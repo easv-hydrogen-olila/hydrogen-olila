@@ -3,6 +3,9 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      screens: {
+        '2md': '920px'
+      },
       colors: {
         clr_primary: '#9A684B',
         clr_primary_complement: '#4b7d9a',
