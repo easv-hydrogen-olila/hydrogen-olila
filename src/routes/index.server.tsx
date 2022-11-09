@@ -41,7 +41,9 @@ function HomepageContent() {
   return (
     <>
       <Hero {...primaryHero}/>
-      <ShopCategories data={shopCategoriesData}/>
+      <Suspense fallback='Loading...'>
+        <ShopCategories data={shopCategoriesData}/>
+      </Suspense>
 
     </>
   )

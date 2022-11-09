@@ -11,6 +11,7 @@ type Props = {
 const STYLES = [
     //Hero button
     "btn--hero--primary",
+    "btn--hero--secondary"
 ]
 
 const SIZES = ["btn--medium", "btn--small"]
