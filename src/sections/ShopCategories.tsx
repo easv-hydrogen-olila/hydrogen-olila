@@ -1,6 +1,6 @@
 import type {Collection} from '@shopify/hydrogen/storefront-api-types';
 import { Heading } from '../elements/Heading';
-import CategoryCard from '../components/CategoryCard';
+import CategoryCard from '../components/cards/CategoryCard';
 
 
 
@@ -14,7 +14,6 @@ export default function ShopCategories({
 }) {
 
     const haveCollections = data.length > 0;
-    console.log(data)
 
     if(!haveCollections) return null;
 

@@ -9,7 +9,7 @@ import {
   import { Suspense } from "react";
   
   import { Layout } from "../../components/Layout.server";
-  import ProductDetails from "../../components/ProductDetails.client";
+  import {ProductDetails} from "../../components";
   import type { Product } from '@shopify/hydrogen/storefront-api-types'
   
   export default function ProductRoute({ params }) {
