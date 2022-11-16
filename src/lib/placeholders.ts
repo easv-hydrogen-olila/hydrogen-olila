@@ -53,6 +53,63 @@ const PLACEHOLDER = {
     ]
 }
 
+const FOOTER_PLACEHOLDER = {
+    FOOTERS: [
+        {
+            heading: "DU FINDER OS HER",
+            content: [
+                {
+                    title: "Olila Esbjerg",
+                    items:[
+                        {
+                            value: 'Address',
+                            description: 'Kongensgade 94, 6700'
+                        },
+                        {
+                            value: 'Phone',
+                            description: 'Telefon: 5353 9796'
+                        },
+                        {
+                            value: 'Email',
+                            description: 'info@olila.dk'
+                        },
+                        {
+                            value: 'CVR',
+                            description: '42869643'
+                        }
+                    ]
+
+                },
+                {
+                    title: "Åbningstider",
+                    items:[
+                        {
+                            value: 'Working days',
+                            description: 'Mandag – torsdag kl. 10.00 – 17.30'
+                        },
+                        {
+                            value: 'Friday',
+                            description: 'Fredag kl. 10.00 – 18.00'
+                        },
+                        {
+                            value: 'Saturday',
+                            description: 'Lørdag kl. 10.00 – 15.00'
+                        },
+                        {
+                            value: 'Sunday',
+                            description: 'Lukket(Eller efter aftale)'
+                        },
+                        {
+                            value: 'Special',
+                            description: 'Specielle åbningstider 2021'
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
 
 //TODO Hero placeholder
 export function getHeroPlaceHolder(heros: any[]) {

@@ -1,0 +1,6 @@
+export {FooterNewsletter} from './FooterNewsletter.client'
+export {Footer} from './Footer.server'
+export {FooterMenu} from './FooterMenu.client'
+export {Layout} from './Layout.server'
+export {ProductCard} from './ProductCard.server'
+export {ProductDetails} from './ProductDetails.client'

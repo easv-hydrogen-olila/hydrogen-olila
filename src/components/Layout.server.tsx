@@ -1,18 +1,25 @@
 import { useShopQuery, CacheLong, gql, useUrl, Link, Seo } from "@shopify/hydrogen";
 import { Suspense } from "react";
+import {Footer} from "../components";
+
+const FOOTER_MENU_HANDLE = 'main-footer'
 
 export function Layout ({children}) {
     const { pathname } = useUrl();
     const isHome = pathname === "/";
 
     const {
-        data: { shop },
+        data: { shop, footerMenu },
     } = useShopQuery({
         query: SHOP_QUERY,
+        variables:{
+          footerMenuHandle: FOOTER_MENU_HANDLE
+        },
         cache: CacheLong(),
         preload: true
     });
 
+    const {items: footerMenuItems} = footerMenu
     return (
         <>
         <Suspense>
@@ -46,17 +53,42 @@ export function Layout ({children}) {
               <Suspense>{children}</Suspense>
             </main>
           </div>
+          <Suspense>
+            <Footer menu={footerMenuItems}/>
+          </Suspense>
         </>
     )
 };
 
+function FooterMenu() {
+  
+}
 
 
 const SHOP_QUERY = gql`
-  query ShopInfo {
-    shop {
-      name
-      description
-    }
+  fragment MenuItem on MenuItem {
+    id
+    resourceId
+    tags
+    title
+    type
+    url
+  }
+  query ShopInfo(
+    $footerMenuHandle: String!
+  ) {
+      shop {
+        name
+        description
+      }
+      footerMenu: menu(handle: $footerMenuHandle){
+        id
+        items{
+          ...MenuItem
+          items{
+            ...MenuItem
+          }
+        }
+      }
   }
 `;

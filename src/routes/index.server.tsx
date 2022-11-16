@@ -1,10 +1,12 @@
 import { gql, useShopQuery, CacheLong } from "@shopify/hydrogen";
-import { CollectionConnection } from "@shopify/hydrogen/storefront-api-types";
+import { CollectionConnection, ProductConnection } from "@shopify/hydrogen/storefront-api-types";
 import { Suspense } from "react";
 import FeaturedCollections from "../sections/FeaturedCollections";
 import Hero from "../sections/Hero";
-import { Layout } from "../components/Layout.server";
+import { Layout } from "../components";
 import ShopCategories from "../sections/ShopCategories";
+import ProductSwimlane from "../sections/ProductSwimlane.server";
+import {PRODUCT_CARD_FRAGMENT} from "../lib"
 
 export default function Home() {
   return (
@@ -22,6 +24,8 @@ function HomepageContent() {
   const data = useShopQuery<{ 
     herobanners: CollectionConnection, 
     shopcategories: CollectionConnection
+    featuredproducts: ProductConnection,
+    topproducts: ProductConnection,
   }>({
     query: HOMEPAGE_CONTENT_QUERY,
     cache: CacheLong(),
@@ -30,27 +34,39 @@ function HomepageContent() {
 
   // const {data: {herobanners: {nodes}}} = data
   // const {data: {shopcategories}} = data
-  const {data: {herobanners, shopcategories}} = data
-  // console.log(shopcategories)
+  const {data: {herobanners, shopcategories, featuredproducts, topproducts}} = data
 
   //Hero section fetched data, it's an array since more collections might be added
   const [primaryHero] = herobanners.nodes
   //Shop categories by age range
   const shopCategoriesData = shopcategories.nodes
 
+  const featuredProductsData = featuredproducts.nodes
+  const topProductsData = topproducts.nodes
+
+  
+
   return (
     <>
       <Hero {...primaryHero}/>
-      <Suspense fallback='Loading...'>
-        <ShopCategories data={shopCategoriesData}/>
-      </Suspense>
-
+      <ShopCategories data={shopCategoriesData}/>
+      <ProductSwimlane 
+        data={featuredProductsData} 
+        styles='my-8 text-clr_navigation'
+        title="Nyheder"
+      />
+      <ProductSwimlane 
+        data={topProductsData} 
+        styles='my-8 text-white bg--gradient-color-sky'
+        title="HVEM SHOPPER DU TIL?"
+      />
     </>
   )
 }
 
 
 const HOMEPAGE_CONTENT_QUERY = gql`
+${PRODUCT_CARD_FRAGMENT}
 query homepage {
   herobanners: collections(first: 3 query: "title:hero-section") {
     nodes {
@@ -85,6 +101,16 @@ query homepage {
         height
         url
       }
+    }
+  }
+  featuredproducts: products(first: 4 query: "tag:Wheat"){
+    nodes{
+      ... ProductCard
+    }
+  }
+  topproducts: products(first: 4 sortKey: BEST_SELLING){
+    nodes{
+      ...ProductCard
     }
   }
 }

@@ -11,10 +11,10 @@ type Props = {
 const STYLES = [
     //Hero button
     "btn--hero--primary",
-    "btn--hero--secondary"
+    "btn--secondary"
 ]
 
-const SIZES = ["btn--medium", "btn--small"]
+const SIZES = ["btn--large","btn--medium", "btn--small"]
 
 const Button: React.FC<Props> = ({
     children, 
