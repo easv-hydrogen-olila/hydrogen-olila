@@ -1,8 +1,7 @@
 import type {MenuItem} from '@shopify/hydrogen/storefront-api-types'
-import {FooterNewsletter, FooterMenu} from '../components'
+import {FooterNewsletter, FooterMenu} from '../index'
 
 export function Footer({menu}: {menu?: MenuItem[]}) {
-    console.log(menu)
   return (
     <>  
         <section className='bg-clr_primary_variaton flex flex-col justify-center md:flex-row text-white'>

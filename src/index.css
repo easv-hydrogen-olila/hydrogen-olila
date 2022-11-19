@@ -35,6 +35,18 @@ body{
     background-image: linear-gradient(to right, #87BAEA, #4B7D9A);
 }
 
+.btn--footer{
+    white-space: nowrap;
+    color: white;
+    font-weight: 700;
+    background-color: #EAB787;
+}
+
+.btn--footer:hover{
+    background-color: #4b7d9a;
+
+}
+
 .btn--large{
     padding: 14px 28px;
 }
