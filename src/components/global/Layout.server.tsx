@@ -23,7 +23,7 @@ export function Layout ({children}) {
         cache: CacheLong(),
         preload: true
     });
-
+    console.log(footerMenu)
     const {items: footerMenuItems} = footerMenu
     const {items: headerMenuItems} = headerMenu
     console.log(headerMenuItems)

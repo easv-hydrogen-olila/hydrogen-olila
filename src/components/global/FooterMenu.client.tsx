@@ -9,7 +9,7 @@ export function FooterMenu({menu}:{menu?: MenuItem[]}) {
                 <h3 className='uppercase my-2'>{item.title}</h3>
                 <div className='content'>
                     <ul>
-                        {item.items?.map(subitem=> (
+                        {item.items.length > 0 && item.items?.map(subitem=> (
                             <li key={subitem.id}>{subitem.title}</li>
                         ))}
                     </ul>
