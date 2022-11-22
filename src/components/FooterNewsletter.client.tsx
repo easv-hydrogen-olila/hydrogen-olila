@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import {Image, fetchSync} from '@shopify/hydrogen'
-import Button from '../elements/Button';
+import Button from './elements/Button';
 
 export function FooterNewsletter() {
     const [email, setEmail] = useState('');

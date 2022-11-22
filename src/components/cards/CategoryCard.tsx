@@ -1,7 +1,7 @@
 import {Image, Link} from '@shopify/hydrogen'
-import { Heading } from '../../elements/Heading'
+import { Heading } from '../elements/Heading'
 import type {Image as ImageType} from '@shopify/hydrogen/storefront-api-types';
-import Button from '../../elements/Button';
+import Button from '../elements/Button';
 
 interface Props{
     title: string,

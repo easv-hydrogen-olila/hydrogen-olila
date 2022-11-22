@@ -1,5 +1,5 @@
 import React from 'react'
-import Section from '../elements/Section'
+import Section from '../components/elements/Section'
 import type {Product, Collection} from '@shopify/hydrogen/storefront-api-types'
 import ProductCard from '../components/cards/ProductCard.client'
 

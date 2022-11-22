@@ -1,5 +1,5 @@
 import type {Collection} from '@shopify/hydrogen/storefront-api-types';
-import { Heading } from '../elements/Heading';
+import { Heading } from '../components/elements/Heading';
 import CategoryCard from '../components/cards/CategoryCard';
 
 
