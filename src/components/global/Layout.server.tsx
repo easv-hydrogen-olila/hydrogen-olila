@@ -37,16 +37,11 @@ export function Layout ({children}) {
                     description: shop.description
             }}/>
         </Suspense>
-        <div className="">
-            <div className="">
-              <a href="#mainContent" className="sr-only">
-                Skip to content
-              </a>
-            </div>
+        <div className="min-h-screen">
             <Suspense>
               <Header title="Olila" menu={headerMenuItems}/>
             </Suspense>
-            <main role="main" id="mainContent" className="">
+            <main role="main" id="mainContent" className="h-full">
               {children}
             </main>
           </div>

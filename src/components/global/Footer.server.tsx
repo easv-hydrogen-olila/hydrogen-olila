@@ -7,7 +7,7 @@ export function Footer({menu}: {menu?: MenuItem[]}) {
         <section className='bg-clr_primary_variaton flex flex-col justify-center md:flex-row text-white py-6'>
             <FooterMenu menu={menu}/>
         </section>
-        <section className='bg-clr_primary flex flex-col justify-center md:flex-row text-white py-6'>
+        <section className='bg-clr_primary flex flex-col items-center justify-center md:flex-row text-white py-6'>
             <FooterNewsletter/>
         </section>
     </>

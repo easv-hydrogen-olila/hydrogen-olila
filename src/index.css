@@ -26,6 +26,21 @@ body{
     color:#4b7d9a;
 }
 
+.btn--primary{
+    color: white;
+    background-color: #9A684B;
+}
+
+.btn--primary--rounded{
+    color: white;
+    background-color: #9A684B;
+    border-radius: 5px;
+}
+
+.btn--primary--rounded:hover{
+    background-color: #4b7d9a;
+}
+
 .btn--secondary{
     color: white;
     background-image: linear-gradient(to right,#EAB787, #9A684B);
@@ -52,6 +67,11 @@ body{
 }
 
 .btn--medium{
+    padding: 8px 22px;
+}
+
+.btn--max-w{
+    width: 100%;
     padding: 8px 22px;
 }
 

@@ -1,13 +1,20 @@
 import { useNavigate } from '@shopify/hydrogen';
 import React from 'react'
 import { useState } from 'react';
+import Button from '../elements/Button';
 import { Heading } from '../elements/Heading'
+
+// interface FormElements{
+//     email: HTMLInputElement;
+//     password: HTMLInputElement;
+// }
 
 export function AccountLoginForm() {
     const navigate = useNavigate();
 
     const [hasSubmitError, setHasSubmitError] = useState(false)
     const [showEmailField, setShowEmailField] = useState(true)
+    const [showPasswordField, setPasswordField] = useState(false)
 
     const [email, setEmail] = useState('')
     const [emailError, setEmailError] = useState<null | string>(null)
@@ -20,6 +27,14 @@ export function AccountLoginForm() {
         
         setEmailError(null)
         setPasswordError(null)
+        
+        if(showEmailField){
+            checkEmail(event)
+        } else {
+            checkPassword(event)
+        }
+
+
     }
 
     function resetForm() {
@@ -28,8 +43,30 @@ export function AccountLoginForm() {
         setShowEmailField(true);
     }
 
+    //TODO Improve email validation
+    function checkEmail (event:React.FormEvent<HTMLFormElement>){
+        if(event.currentTarget.email.validity.valid){
+            setShowEmailField(false)
+        } else {
+            setEmailError('Please enter a valid email')
+        }
+
+    }
+
+    async function checkPassword(event: React.FormEvent<HTMLFormElement>) {
+        if(event.currentTarget.password.validity.valid){
+            const response = await callLoginApi({ email, password })
+            console.log(await response)
+            if (response.error){
+                console.log(response.error)
+            }
+        }
+    }
+
+    
+
     return (
-        <div className='flex justify-center my-20'>
+        <div className='flex justify-center my-32 md:my-48'>
             <div className='max-w-md w-full'>
                 <Heading className='text-2xl my-2'>Sign in</Heading>
                 <form noValidate className='' onSubmit={onSubmit}>
@@ -40,7 +77,7 @@ export function AccountLoginForm() {
                             emailError={emailError}
                         />
                     )}
-                    {showEmailField && (
+                    {!showEmailField && (
                         <PasswordField
                             password={password}
                             setPassword = {setPassword}
@@ -49,10 +86,40 @@ export function AccountLoginForm() {
                     )}
                 </form>
             </div>
-
         </div>
     )
 }
+
+
+export async function callLoginApi ({
+    email,
+    password
+}:{
+    email: string,
+    password: string
+}){
+    try{
+        const res = await fetch(`/account/login`,{
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({email, password})
+        })
+
+        if(res.ok){
+            return {}
+        }else{
+            return res.json()
+        }
+
+    } catch (error: any) {
+        return {
+            error: error.toString()
+        }
+    }
+}
+
 
 function EmailField ({
     email,
@@ -84,6 +151,11 @@ function EmailField ({
             />
             {!emailError ?  '' : <p className='text-red-600'>{emailError}</p>}
         </div>
+        <div className='flex items-center justify-center w-full'>
+                <Button type='submit' buttonStyle='btn--primary--rounded' buttonSize='btn--max-w'>
+                    Next
+                </Button>
+        </div>
         </>
     )
 }
@@ -113,8 +185,10 @@ function PasswordField({
             />
             {passwordError ? '': <p className='text-red-600'>{passwordError}</p>}
         </div>
-        <div className='flex items-center justify-center'>
-                {/* <Button/> */}
+        <div className='flex items-center justify-center w-full'>
+                <Button type='submit' buttonStyle='btn--primary--rounded' buttonSize='btn--max-w'>
+                    Log in
+                </Button>
         </div>
         </>
     )
