@@ -1,16 +1,19 @@
 import type {Collection} from '@shopify/hydrogen/storefront-api-types';
 import { Heading } from '../components/elements/Heading';
 import CategoryCard from '../components/cards/CategoryCard';
+import Section from '../components/elements/Section';
 
 
 
 export default function ShopCategories({
     data,
+    styles,
     title = 'HVEM SHOPPER DU TIL?',
     ...props
 }:{
     data: Collection[],
-    title?: string
+    title?: string,
+    styles?: string
 }) {
 
     const haveCollections = data.length > 0;
@@ -20,16 +23,25 @@ export default function ShopCategories({
     return (
     //TODO - Section component. React conditional rendering for image. Refactor with categoryCard
     //TODO - Category card props definition (Image)
-        <section>
-            <Heading>{title}</Heading>
-            <div className='flex flex-col md:flex-row items-center justify-center'>
-                {data.map((collection)=>{
-                    if (!collection?.image) return null
-                    return (
-                        <CategoryCard  {...collection}/>
-                    )
-                })}
+        <Section styles={styles} heading={title}>
+            <div className='flex flex-col items-center justify-between md:flex-row'>
+                <CategoryCards categories={data} />
             </div>
-        </section>
+        </Section>
+    )
+}
+
+
+function CategoryCards ({categories}: {categories: Collection[]}){
+    return(
+        <>
+            {
+            categories.map((category)=>{
+                if (!category?.image) return null
+                return (
+                    <CategoryCard  {...category}/>
+                )
+            })}
+        </>
     )
 }

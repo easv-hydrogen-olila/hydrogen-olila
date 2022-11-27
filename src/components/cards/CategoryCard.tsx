@@ -12,8 +12,8 @@ interface Props{
 export default function CategoryCard ({title, handle, image }: Props)  {
   return (
         <div 
-            className='relative my-4 mx-3 md:my-0 w-[350px] h-[141px] 
-            md:w-[130px] md:h-[190px] 2md:w-[152px] 2md:h-[190px] xl:w-[212px] xl:h-[265px] overflow-y-hidden'>
+            className='relative first:mx-0 first:mr-2 mx-2 my-4 md:my-0 w-[350px] h-[141px] 
+            md:w-[130px] md:h-[190px] 2md:w-[166px] 2md:h-[233px] xl:w-[250px] xl:h-[350px] overflow-hidden overflow-y-hidden'>
 
             <Image 
                 key={handle} 

@@ -49,17 +49,20 @@ function HomepageContent() {
   return (
     <>
       <Hero {...primaryHero}/>
-      <ShopCategories data={shopCategoriesData}/>
-      <ProductSwimlane 
-        data={featuredProductsData} 
-        styles='my-8 text-clr_navigation'
-        title="Nyheder"
-      />
-      <ProductSwimlane 
-        data={topProductsData} 
-        styles='my-8 text-clr_navigation bg-[#E5E5E5]'
-        title="HVEM SHOPPER DU TIL?"
-      />
+      <div className="container mx-auto">
+        <ShopCategories data={shopCategoriesData}/>
+        <ProductSwimlane 
+          data={featuredProductsData} 
+          styles='my-8  text-clr_navigation'
+          title="Nyheder"
+        />
+      </div>
+        <ProductSwimlane 
+          fullWidth
+          data={topProductsData} 
+          styles='my-8  text-clr_navigation bg-[#E5E5E5]'
+          title="HVEM SHOPPER DU TIL?"
+        />
     </>
   )
 }
@@ -103,12 +106,12 @@ query homepage {
       }
     }
   }
-  featuredproducts: products(first: 4 query: "tag:Wheat"){
+  featuredproducts: products(first: 5 query: "tag:Wheat"){
     nodes{
       ... ProductCard
     }
   }
-  topproducts: products(first: 4 sortKey: BEST_SELLING){
+  topproducts: products(first: 5 sortKey: BEST_SELLING){
     nodes{
       ...ProductCard
     }

@@ -11,13 +11,15 @@ export default function ProductSwimlane({
     data = defaultProducts,
     title = 'HVEM SHOPPER DU TIL?',
     count = 12,
-    styles 
+    styles,
+    fullWidth 
 }:{
   data: Product[],
   title?: string,
   count?: number,
   //REVIEW - Classname?
-  styles?: string
+  styles?: string,
+  fullWidth?: boolean
 }) {
 
   //REVIEW - useMemo hook https://reactjs.org/docs/hooks-reference.html#usememo
@@ -35,10 +37,10 @@ export default function ProductSwimlane({
   // }
 
   return (
-    <Section heading={title} styles={styles}>
-      <div className='flex items-center justify-center'>
-        <ProductCards products={data}/>
-      </div>
+    <Section heading={title} styles={styles} fullWidth>
+         <div className='flex w-full justify-between'>
+          <ProductCards products={data}/>
+        </div>
     </Section>
   )
 }

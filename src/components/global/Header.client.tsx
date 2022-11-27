@@ -40,7 +40,7 @@ function DesktopHeader ({title, menu, isHome, logo}: {
                         <ul className='inline-block'>
                             { menu && (
                                 menu.map(item => (
-                                    <a href="#">
+                                    <a key={item.id} href="#">
                                         <li className='inline-block' key={item.id}>{item.title}</li>
                                     </a>
                                 ))
@@ -55,7 +55,7 @@ function DesktopHeader ({title, menu, isHome, logo}: {
                     height={40}
                     className= 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[83px] h-[48px]'
                 />
-                <div className='absolute right-0 header-icons flex space-x-2'>
+                <div className='absolute right-0 header-icons flex px-6 md:px-12 space-x-2'>
                     <Link to='/account'>
                         <IconAccount width={25} height={25}/>
                     </Link>
