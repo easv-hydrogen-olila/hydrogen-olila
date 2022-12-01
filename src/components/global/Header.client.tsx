@@ -1,6 +1,7 @@
 import {Link, Image} from '@shopify/hydrogen'
 import type {MenuItem} from '@shopify/hydrogen/storefront-api-types'
 import { IconAccount, IconCart, IconFavorite, IconSearch } from '../elements/index'
+import NewHeader from './NewHeader.client'
 
 
 const SHOP_BANNER_LOGO = 'https://cdn.shopify.com/s/files/1/0677/4017/2569/files/logo-sort_1.png?v=1668592585'
@@ -9,17 +10,14 @@ export function Header({title, menu}:{
     title?: string,
     menu?:  MenuItem[],
 }) {
-
-
-    console.log(menu)
-
   return (
     <>
-        <DesktopHeader 
+        {/* <DesktopHeader 
             title ='Olila'
             menu = {menu}
             logo = {SHOP_BANNER_LOGO}
-        />
+        /> */}
+        <NewHeader/>
     </>
   )
 }

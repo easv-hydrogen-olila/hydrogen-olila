@@ -23,10 +23,8 @@ export function Layout ({children}) {
         cache: CacheLong(),
         preload: true
     });
-    console.log(footerMenu)
     const {items: footerMenuItems} = footerMenu
     const {items: headerMenuItems} = headerMenu
-    console.log(headerMenuItems)
     return (
         <>
         <Suspense>
@@ -41,7 +39,7 @@ export function Layout ({children}) {
             <Suspense>
               <Header title="Olila" menu={headerMenuItems}/>
             </Suspense>
-            <main role="main" id="mainContent" className="h-full">
+            <main role="main" id="mainContent">
               {children}
             </main>
           </div>
