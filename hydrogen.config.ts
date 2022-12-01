@@ -1,9 +1,26 @@
 import {defineConfig} from '@shopify/hydrogen/config';
 
+// Original Olila
+// storeDomain: 'https://info-6737.myshopify.com/',
+// storefrontToken: 'dbb5b22572c02a644d67f5591b618977',
+
+
+
 export default defineConfig({
   shopify: {
-    storeDomain: 'hydrogen-preview.myshopify.com',
-    storefrontToken: '3b580e70970c4528da70c98e097c2fa0',
+    storeDomain: 'https://info-6737.myshopify.com/',
+    storefrontToken: 'dbb5b22572c02a644d67f5591b618977',
     storefrontApiVersion: '2022-07',
   },
 });
+
+
+// **BACKUP**
+
+// export default defineConfig({
+//   shopify: {
+//     storeDomain: 'https://olila-hydrogen.myshopify.com/',
+//     storefrontToken: 'eed88686e7e2074c2c7624d608d10327',
+//     storefrontApiVersion: '2022-07',
+//   },
+// });
