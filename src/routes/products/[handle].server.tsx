@@ -8,7 +8,7 @@ import {
   } from "@shopify/hydrogen";
   import { Suspense } from "react";
   
-  import { Layout } from "../../components/Layout.server";
+  import { Layout } from "../../components/global/Layout.server";
   import {ProductDetails} from "../../components";
   import type { Product } from '@shopify/hydrogen/storefront-api-types'
   

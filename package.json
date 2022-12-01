@@ -15,6 +15,7 @@
   "devDependencies": {
     "@shopify/cli": "3.19.0",
     "@shopify/cli-hydrogen": "3.19.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.7",
     "@types/react": "^18.0.9",
     "autoprefixer": "^10.4.12",
@@ -24,6 +25,8 @@
     "vite": "^2.9.13"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.4",
+    "@heroicons/react": "^2.0.13",
     "@shopify/hydrogen": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

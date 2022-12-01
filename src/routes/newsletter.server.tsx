@@ -6,12 +6,15 @@ export function Newsletter() {
     <FooterNewsletter/>
   )
 }
+        // @ts-ignore
 
-// export async function api(request:RequestInfo) {
-//     if (request.method!=='POST'){
-//         return new Response(405, {Allow: 'POST'})
-//     }
+export async function api(request) {
+    if (request.method!=='POST'){
+        // @ts-ignore
+        return new Response(200, {Allow: 'POST'})
+    }
+    
 
-//     const {email} = await request.json()
-//     return {email, status: 'subscribed'}
-// }
+    const {email} = await request.json()
+    return {email, status: 'subscribed'}
+}

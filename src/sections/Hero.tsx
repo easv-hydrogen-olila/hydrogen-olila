@@ -1,6 +1,6 @@
 import { Link, Image } from '@shopify/hydrogen';
-import Button from '../elements/Button';
-import { Heading } from '../elements/Heading';
+import Button from '../components/elements/Button';
+import { Heading } from '../components/elements/Heading';
 
 // interface Metafield {
 //     value: string;
