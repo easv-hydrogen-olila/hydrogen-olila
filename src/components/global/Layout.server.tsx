@@ -87,6 +87,9 @@ const SHOP_QUERY = gql`
           ...MenuItem
           items{
             ...MenuItem
+            items{
+              ...MenuItem
+            }
           }
         }
       }
