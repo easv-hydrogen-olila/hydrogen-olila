@@ -9,6 +9,11 @@ body{
     font-family: Montserrat, Helvetica, sans-serif;
 }
 
+/* **Disable dark borders on button ** */
+*:focus {
+    outline: 0 !important;
+}
+
 .btn{
     text-transform: uppercase;
     border-radius: 9999px;
@@ -105,3 +110,15 @@ body{
 .accordion-icon{
     font-size: 24px;
 }
+
+/* **Grid** */
+.grid-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.grid-5{
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.grid-6{
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+

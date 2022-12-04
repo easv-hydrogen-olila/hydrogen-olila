@@ -17,7 +17,7 @@ export function Header({title, menu}:{
             menu = {menu}
             logo = {SHOP_BANNER_LOGO}
         /> */}
-        <NewHeader/>
+        <NewHeader menu={menu}/>
     </>
   )
 }
