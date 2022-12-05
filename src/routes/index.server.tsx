@@ -51,18 +51,18 @@ function HomepageContent() {
       <Hero {...primaryHero}/>
       <div className="container mx-auto">
         <ShopCategories data={shopCategoriesData}/>
-        {/* <ProductSwimlane 
+        <ProductSwimlane 
           data={featuredProductsData} 
           styles='my-8  text-clr_navigation'
           title="Nyheder"
-        /> */}
+        />
       </div>
-        {/* <ProductSwimlane 
+        <ProductSwimlane 
           fullWidth
           data={topProductsData} 
           styles='my-8  text-clr_navigation bg-[#E5E5E5]'
           title="HVEM SHOPPER DU TIL?"
-        /> */}
+        />
     </>
   )
 }
