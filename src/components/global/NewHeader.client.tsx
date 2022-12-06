@@ -243,7 +243,7 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
 
               {/* Logo */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2">
-                <a href="#">
+                <Link to="/">
                   <span className="sr-only">Your Company</span>
                   <Image
                     className="h-10 w-auto"
@@ -252,11 +252,11 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
                     width={90}
                     height={40}
                   />
-                </a>
+                </Link>
               </div>
 
               {/* Flyout menus */}
-              <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
+              <Popover.Group className="hidden lg:block lg:self-stretch">
                 <div className="flex h-full space-x-8">
                   {menu && (
                     menu.map((menu) => (

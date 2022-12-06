@@ -31,7 +31,7 @@ function DesktopHeader ({title, menu, isHome, logo}: {
 
 }){
     return (
-        <header role='banner'>
+        <header role='banner container'>
             <div className='relative px-12 py-8 md:py-6 flex items-center'>
                 <div className='hidden md:block mega--menu left-0' role='navigation'>
                     <div className='tier-1' role='navigation'>
