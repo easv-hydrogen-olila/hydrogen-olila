@@ -49,7 +49,7 @@ function HomepageContent() {
   return (
     <>
       <Hero {...primaryHero}/>
-      <div className="container mx-auto">
+      {/* <div className="container mx-auto">
         <ShopCategories data={shopCategoriesData}/>
         <ProductSwimlane 
           data={featuredProductsData} 
@@ -62,7 +62,7 @@ function HomepageContent() {
           data={topProductsData} 
           styles='my-8  text-clr_navigation bg-[#E5E5E5]'
           title="HVEM SHOPPER DU TIL?"
-        />
+        /> */}
     </>
   )
 }
