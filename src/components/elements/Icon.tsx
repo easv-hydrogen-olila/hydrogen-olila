@@ -66,3 +66,29 @@ export const IconSearch = ({height, width, color, ...props}: Props & SVGProps<SV
     <path d="M21 3C11.602 3 4 10.602 4 20s7.602 17 17 17c3.355 0 6.46-.984 9.094-2.656l12.281 12.281 4.25-4.25L34.5 30.281C36.68 27.421 38 23.88 38 20c0-9.398-7.602-17-17-17Zm0 4c7.2 0 13 5.8 13 13s-5.8 13-13 13S8 27.2 8 20 13.8 7 21 7Z" />
   </svg>
 )
+
+export const IconClose = ({height, width, color, ...props}: Props & SVGProps<SVGSVGElement>) =>(
+  <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  className="w-5 h-5"
+>
+  <title>Close</title>
+  <line
+    x1="4.44194"
+    y1="4.30806"
+    x2="15.7556"
+    y2="15.6218"
+    stroke="currentColor"
+    strokeWidth="1.25"
+  />
+  <line
+    y1="-0.625"
+    x2="16"
+    y2="-0.625"
+    transform="matrix(-0.707107 0.707107 0.707107 0.707107 16 4.75)"
+    stroke="currentColor"
+    strokeWidth="1.25"
+  />
+</svg>
+)

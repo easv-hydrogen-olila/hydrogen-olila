@@ -1,137 +1,17 @@
 import { Fragment, useState } from 'react'
-import {Link, Image} from '@shopify/hydrogen'
+import {Link, Image, useCart} from '@shopify/hydrogen'
 //@ts-ignore
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { IconAccount, IconCart, IconFavorite, IconSearch } from '../elements/index'
 import { MenuItem } from '@shopify/hydrogen/storefront-api-types'
+import { Drawer, useDrawer } from './Drawer.client'
+import CartDetails from './CartDetails.client'
 
 
 const SHOP_BANNER_LOGO = 'https://cdn.shopify.com/s/files/1/0677/4017/2569/files/logo-sort_1.png?v=1668592585'
 
 
-const navigation = {
-  categories: [
-    {
-      id: 'women',
-      name: 'Women',
-      featured: [
-        {
-          name: 'New Arrivals',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg',
-          imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
-        },
-        {
-          name: 'Basic Tees',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-          imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-        },
-      ],
-      sections: [
-        {
-          id: 'clothing',
-          name: 'Clothing',
-          items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Dresses', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Denim', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
-          ],
-        },
-        {
-          id: 'accessories',
-          name: 'Accessories',
-          items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
-          ],
-        },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Significant Other', href: '#' },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'men',
-      name: 'Men',
-      featured: [
-        {
-          name: 'New Arrivals',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
-          imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
-        },
-        {
-          name: 'Artwork Tees',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
-          imageAlt:
-            'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
-        },
-      ],
-      sections: [
-        {
-          id: 'clothing',
-          name: 'Clothing',
-          items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
-          ],
-        },
-        {
-          id: 'accessories',
-          name: 'Accessories',
-          items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
-          ],
-        },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-          ],
-        },
-      ],
-    },
-  ],
-  pages: [
-    { name: 'Company', href: '#' },
-    { name: 'Stores', href: '#' },
-  ],
-}
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -139,6 +19,7 @@ function classNames(...classes) {
 
 export default function NewHeader({menu}:{menu?: MenuItem[]}) {
   const [open, setOpen] = useState(false)
+  const {isOpen, openDrawer, closeDrawer}= useDrawer()
 
   return (
     <div className="bg-white">
@@ -212,8 +93,13 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
           </div>
         </Dialog>
       </Transition.Root>
+      
+      <Drawer open={isOpen} onClose={closeDrawer}>
+        <CartDetails onClose={closeDrawer} />
+      </Drawer>
 
       <header className="relative bg-white">
+        {/* Top banner */}
         <div className='flex items-center justify-center md:justify-between h-10 bg-clr_primary md:bg-clr_grey_bg px-4 sm:px-6 lg:px-8'>
           <p className="uppercase text-[11px] font-bold text-white md:text-clr_navigation">
             STORT UDVALG AF DANMARKS 
@@ -227,6 +113,8 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
           </p>
         </div>
 
+
+        {/* Menu navigation */}
         <nav aria-label="Top" className="mx-auto  px-4 sm:px-6 lg:px-8">
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
@@ -334,9 +222,14 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
                         <IconAccount width={25} height={25}/>
                     </Link>
                     <IconFavorite width={25} height={25}/>
-                    <IconCart width={25} height={25}/>
                     <IconSearch className='hidden md:block' width={23} height={23}/>
-
+                    <button
+                      onClick={openDrawer}
+                      className='relative'
+                    >
+                      <IconCart width={25} height={25}/>
+                      <CartBadge/>
+                    </button>
                 </div>
               </div>
             </div>
@@ -345,4 +238,26 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
       </header>
     </div>
   )
+}
+
+
+function CartBadge() {
+  const {totalQuantity} = useCart()
+
+  if (totalQuantity < 1) {
+    return null
+  }
+
+  return (
+    <div
+    className="text-white bg-black 
+    absolute top-0 right-0 text-[0.625rem] 
+    font-medium h-3 min-w-[0.75rem] 
+    flex items-center justify-center leading-none text-center 
+    rounded-full w-auto px-[0.125rem] pb-px"
+    >
+    <span>{totalQuantity}</span>
+  </div>
+  )
+
 }
