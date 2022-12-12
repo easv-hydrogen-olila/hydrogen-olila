@@ -9,7 +9,7 @@ import {
   import { Suspense } from "react";
   
   import { Layout } from "../../components/global/Layout.server";
-  import {ProductDetails} from "../../components";
+  import {ProductDetails, ProductDetail} from "../../components";
   import type { Product } from '@shopify/hydrogen/storefront-api-types'
   
   export default function ProductRoute({ params }) {
@@ -36,7 +36,8 @@ import {
         <Suspense>
           <Seo type="product" data={product} />
         </Suspense>
-        <ProductDetails product={product} />
+        {/* <ProductDetails product={product} /> */}
+        <ProductDetail product={product}/>
       </Layout>
     );
   }

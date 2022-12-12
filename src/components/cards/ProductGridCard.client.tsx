@@ -41,7 +41,7 @@ export default function ProductGridCard({product}:{
         </div>
         <div className="absolute -bottom-4 right-1/2 translate-x-1/2">
             <Link 
-            to={`/product/${handle}`}
+            to={`/products/${handle}`}
             className="uppercase whitespace-nowrap p-2 px-6 text-xs text-white font-bold bg-white rounded-full
             bg-gradient-to-r from-clr_gold to-clr_primary
             hover:bg-gradient-to-r hover:from-[#87BAEA] hover:to-[#4B7D9A] ">Se mere

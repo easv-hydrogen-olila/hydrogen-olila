@@ -84,6 +84,12 @@ body{
     background-image: linear-gradient(to right, #295760, #638990);
 }
 
+.bg-clr-variant{
+    background-color: #9A684B;
+    color:white;
+    font-weight: 600;
+}
+
 
 /***Accordion***/
 
