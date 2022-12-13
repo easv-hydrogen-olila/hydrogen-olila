@@ -116,7 +116,7 @@ export function GridComponent({product}:{product: Product}) {
                         checked
                           ? 'bg-clr-variant'
                           : 'border-transparent',
-                          'relative border rounded-md py-3 px-3 text-clr_navigation font-semibold bg-clr_variant_dropdown flex items-center justify-center text-sm uppercase hover:ring-2 hover:ring-clr_primary_complement cursor-pointer focus:outline-none sm:flex-1 border-gray-400'
+                          'relative whitespace-nowrap border rounded-md py-3 px-3 text-clr_navigation font-semibold bg-clr_variant_dropdown flex items-center justify-center text-sm uppercase hover:ring-2 hover:ring-clr_primary_complement cursor-pointer focus:outline-none sm:flex-1 border-gray-400'
                       )}
                       >
                       {value}

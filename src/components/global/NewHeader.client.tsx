@@ -222,7 +222,7 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
                         <IconAccount width={25} height={25}/>
                     </Link>
                     <IconFavorite width={25} height={25}/>
-                    <IconSearch className='hidden md:block' width={23} height={23}/>
+                    <SearchForm/>
                     <button
                       onClick={openDrawer}
                       className='relative'
@@ -260,4 +260,20 @@ function CartBadge() {
   </div>
   )
 
+}
+
+function SearchForm(){
+  return(
+    <form action="/search">
+      <input
+        className='bg-transparent hidden md:inline-block text-left lg:text-right border-b transition border-transparent -mb-px border-x-0 border-t-0 appearance-none px-0 py-1 focus:ring-transparent placeholder:opacity-20 placeholder:text-inherit'
+        type="search"
+        placeholder="Search"
+        name="q"
+      />
+      <button type='submit'>
+        <IconSearch className='hidden md:block' width={23} height={23}/>
+      </button>
+    </form>
+  )
 }
