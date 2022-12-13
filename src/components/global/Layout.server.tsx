@@ -39,7 +39,7 @@ export function Layout ({children}) {
             <Suspense>
               <Header title="Olila" menu={headerMenuItems}/>
             </Suspense>
-            <main role="main" id="mainContent">
+            <main role="main" id="mainContent" className="">
               {children}
             </main>
           </div>
