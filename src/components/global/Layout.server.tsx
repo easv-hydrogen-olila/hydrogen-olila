@@ -50,11 +50,6 @@ export function Layout ({children}) {
     )
 };
 
-function FooterMenu() {
-  
-}
-
-
 const SHOP_QUERY = gql`
   fragment MenuItem on MenuItem {
     id

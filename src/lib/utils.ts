@@ -9,3 +9,10 @@ export function getVendorFromTitle (title:string) {
         productTitle
     }
 }
+
+export function getUrlHandle(url:string){
+    let urlArray = url.split('/')
+    const handle = urlArray[urlArray.length-1] == '' ? '#': urlArray[urlArray.length-1]
+
+    return handle
+}

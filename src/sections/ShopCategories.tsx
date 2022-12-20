@@ -23,9 +23,12 @@ export default function ShopCategories({
     return (
     //TODO - Section component. React conditional rendering for image. Refactor with categoryCard
     //TODO - Category card props definition (Image)
-        <Section styles={styles} heading={title}>
-            <div className='flex flex-col items-center justify-between md:flex-row'>
-                <CategoryCards categories={data} />
+        <Section styles={styles}>
+            <div className='container px-8 mx-auto'>
+                <Heading component='h3'>{title}</Heading>
+                <div className='flex flex-col items-center justify-between md:flex-row'>
+                    <CategoryCards categories={data} />
+                </div>
             </div>
         </Section>
     )

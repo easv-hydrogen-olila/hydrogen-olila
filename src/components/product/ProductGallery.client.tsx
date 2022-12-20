@@ -27,10 +27,9 @@ export function ProductGallery({media}: {media: Media[]}) {
                 }}
             spaceBetween={10}
             navigation={true}
-            onSwiper={(swiper) => console.log(swiper)}
             thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
             modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2"
+            className="mySwiper3"
         >
                 {media.map((media) => {
                     return(
@@ -40,23 +39,23 @@ export function ProductGallery({media}: {media: Media[]}) {
                     )
                 })}
             </Swiper>
-                <Swiper
-                    onSwiper={setThumbsSwiper}
-                    spaceBetween={10}
-                    slidesPerView={4}
-                    freeMode={true}
-                    watchSlidesProgress={true}
-                    modules={[FreeMode, Navigation, Thumbs]}
-                    className="mySwiper"
-                >
-                    {media.map((media) => {
-                        return(
-                            <SwiperSlide>
-                                <MediaFile data={media} />
-                            </SwiperSlide>
-                        )
-                    })}
-                </Swiper>
+            <Swiper
+                onSwiper={setThumbsSwiper}
+                spaceBetween={10}
+                slidesPerView={4}
+                freeMode={true}
+                watchSlidesProgress={true}
+                modules={[FreeMode, Navigation, Thumbs]}
+                className="mySwiper"
+            >
+                {media.map((media) => {
+                    return(
+                        <SwiperSlide>
+                            <MediaFile data={media} />
+                        </SwiperSlide>
+                    )
+                })}
+            </Swiper>
         </>
     )
 }

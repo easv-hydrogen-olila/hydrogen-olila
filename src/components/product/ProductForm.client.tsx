@@ -74,7 +74,7 @@ export default function ProductForm({product}:{product: Product}) {
             {/* <DiscloruseMenu/> */}
 
             {/* Product descripion */}
-            <div className='bg-clr_grey_bg p-4 my-6' dangerouslySetInnerHTML= {{ __html: product.descriptionHtml}} ></div>
+            <div className='bg-clr_grey_bg px-4 py-6 mt-6' dangerouslySetInnerHTML= {{ __html: product.descriptionHtml}} ></div>
 
         </div>
     )

@@ -7,8 +7,7 @@ import Accordion from './Accordion'
 export function FooterMenu({menu}:{menu?: MenuItem[]}) {
   return (
     <>
-        {}
-        <div className='accordion md:hidden'>
+        <div className='accordion md:flex md:justify-between'>
             {FOOTER_CONTENT.map(menu =>(
             <Accordion {...menu}/>
             ))}

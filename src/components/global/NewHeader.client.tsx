@@ -120,13 +120,15 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
             <div className="flex h-16 items-center">
               <button
                 type="button"
-                className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
+                className="rounded-md bg-white p-2 text-gray-400 xl:hidden"
                 onClick={() => setOpen(true)}
               >
                 <span className="sr-only">Open menu</span>
                 <Bars3Icon className="h-6 w-6 text-black" aria-hidden="true" />
               </button>
-              <IconSearch className='md:hidden' width={23} height={23}/>
+              <div className='sm:block md:hidden'>
+                <SearchForm/>
+              </div>
 
 
               {/* Logo */}
@@ -144,7 +146,7 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
               </div>
 
               {/* Flyout menus */}
-              <Popover.Group className="hidden lg:block lg:self-stretch">
+              <Popover.Group className="hidden xl:block xl:self-stretch">
                 <div className="flex h-full space-x-8">
                   {menu && (
                     menu.map((menu) => (
@@ -215,21 +217,25 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
                 </div>
               </Popover.Group>
 
-              <div className="ml-auto flex items-center">
+              <div className="ml-auto flex items-center justify-center">
                 {/* Icons */}
-                <div className='ml-4 flex lg:ml-6 space-x-2'>
+                <div className='ml-4 flex items-center lg:ml-6 space-x-3'>
+                    <div className='hidden md:block'>
+                      <SearchForm/>
+                    </div>
                     <Link className='md:block' to='/account'>
                         <IconAccount width={25} height={25}/>
                     </Link>
-                    <IconFavorite width={25} height={25}/>
-                    <SearchForm/>
-                    <button
-                      onClick={openDrawer}
-                      className='relative'
-                    >
-                      <IconCart width={25} height={25}/>
-                      <CartBadge/>
-                    </button>
+                    {/* <IconFavorite width={25} height={25}/> */}
+                    <div className='flex items-center'>
+                      <button
+                        onClick={openDrawer}
+                        className='relative'
+                      >
+                        <IconCart width={25} height={25}/>
+                        <CartBadge/>
+                      </button>
+                    </div>
                 </div>
               </div>
             </div>
@@ -264,16 +270,18 @@ function CartBadge() {
 
 function SearchForm(){
   return(
-    <form action="/search">
-      <input
-        className='bg-transparent hidden md:inline-block text-left lg:text-right border-b transition border-transparent -mb-px border-x-0 border-t-0 appearance-none px-0 py-1 focus:ring-transparent placeholder:opacity-20 placeholder:text-inherit'
-        type="search"
-        placeholder="Search"
-        name="q"
-      />
-      <button type='submit'>
-        <IconSearch className='hidden md:block' width={23} height={23}/>
-      </button>
+    <form action="/search" className=''>
+      <div className='relative w-36'>
+        <input
+          className='px-2 p-2 bg-clr_header_bg rounded-full w-full text-center'
+          type="search"
+          placeholder="SØG"
+          name="q"
+        />
+        <button type='submit' className='absolute right-[15px] bottom-2'>
+          <IconSearch  width={23} height={23}/>
+        </button>
+      </div>
     </form>
   )
 }
