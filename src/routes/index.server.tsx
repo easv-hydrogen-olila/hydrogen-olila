@@ -31,15 +31,12 @@ function HomepageContent() {
     preload: true
   }) 
 
-  // const {data: {herobanners: {nodes}}} = data
-  // const {data: {shopcategories}} = data
   const {data: {herobanners, shopcategories, featuredproducts, topproducts}} = data
 
   //Hero section fetched data, it's an array since more collections might be added
   const [primaryHero] = herobanners.nodes
   //Shop categories by age range
   const shopCategoriesData = shopcategories.nodes
-
   const featuredProductsData = featuredproducts.nodes
   const topProductsData = topproducts.nodes
 
@@ -63,7 +60,6 @@ function HomepageContent() {
           title="POPULÆRT I ØJEBLIKKET"
         />
         <FeaturedCollections/>
-
     </>
   )
 }

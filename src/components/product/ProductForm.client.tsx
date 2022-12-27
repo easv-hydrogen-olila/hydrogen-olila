@@ -12,17 +12,9 @@ function classNames(...classes) {
 }
 
 export default function ProductForm({product}:{product: Product}) {
-    const {media, title, vendor, descriptionHtml, id, productType} = product;
-    const {
-      priceV2,
-      compareAtPriceV2,
-      id: variantId,
-      sku,
-      title: variantTitle,
-    } = product.variants.nodes[0];
-    const {options, setSelectedOption, selectedOptions, selectedVariant} = useProductOptions();
-
-
+    const { title } = product;
+    const { priceV2, compareAtPriceV2 } = product.variants.nodes[0];
+    const { selectedVariant } = useProductOptions();
     const isOutOfStock = !selectedVariant?.availableForSale || false;
     
     return (
@@ -82,7 +74,6 @@ export default function ProductForm({product}:{product: Product}) {
 
 export function GridComponent({product}:{product: Product}) {
   const {options, selectedVariant, selectedOptions, setSelectedOption, isOptionInStock} = useProductOptions();
-  console.log(options)
   
   return (
     <>

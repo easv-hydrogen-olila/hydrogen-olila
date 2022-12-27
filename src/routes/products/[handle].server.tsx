@@ -36,7 +36,6 @@ import {
         <Suspense>
           <Seo type="product" data={product} />
         </Suspense>
-        {/* <ProductDetails product={product} /> */}
         <ProductDetail product={product}/>
       </Layout>
     );

@@ -127,7 +127,9 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
                 <Bars3Icon className="h-6 w-6 text-black" aria-hidden="true" />
               </button>
               <div className='sm:block md:hidden'>
-                <SearchForm/>
+                <Link to='/search'>
+                  <IconSearch  width={23} height={23}/>
+                </Link>
               </div>
 
 

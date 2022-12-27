@@ -20,17 +20,17 @@ export function ProductGallery({media}: {media: Media[]}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
         <>
-        <Swiper
-            style={{
-                "--swiper-navigation-color": "#fff",
-                "--swiper-pagination-color": "#fff",
-                }}
-            spaceBetween={10}
-            navigation={true}
-            thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper3"
-        >
+            <Swiper
+                style={{
+                    "--swiper-navigation-color": "#fff",
+                    "--swiper-pagination-color": "#fff",
+                    }}
+                spaceBetween={10}
+                navigation={true}
+                thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+                modules={[FreeMode, Navigation, Thumbs]}
+                className="mySwiper3"
+            >
                 {media.map((media) => {
                     return(
                         <SwiperSlide>

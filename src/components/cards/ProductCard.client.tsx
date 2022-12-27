@@ -23,7 +23,7 @@ const ProductCard = ({data}: {data:Product}) => {
     const productVariant = nodes[0]
     
 return(
-        <div key={handle} className="group relative py-3">
+        <div key={handle} className="group relative py-3 pb-10">
           <Link to={`/products/${handle}`}>
             <div className="h-[100px] md:h-[300px] flex items-stretch aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none">
               {featuredImage && (
@@ -34,10 +34,10 @@ return(
                   />
               )}
             </div>
-            <div className='h-28 flex relative flex-col uppercase text-xs lg:text-base max-w-[220px]'>
+            <div className='md:h-28 flex relative flex-col uppercase text-base max-w-[220px]'>
                     <div className='font-bold'>{vendor}</div>
                     <div className='font-normal'>{productTitle}</div>
-                  <div className='absolute bottom-0 font-semibold sm:text-base md:text-lg'>
+                  <div className='md:absolute bottom-0 font-semibold text-lg'>
                       <Money withoutTrailingZeros data={productVariant.priceV2}/>
                   </div>
             </div>

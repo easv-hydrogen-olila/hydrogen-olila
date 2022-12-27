@@ -51,9 +51,28 @@ export default function ProductSwimlane({
       <div className="mx-auto flex items-center px-8">
         {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2> */}
           <Swiper
-          slidesPerView={5}
+            breakpoints={{
+              // when window width is >= 640px
+              640: {
+                width: 640,
+                slidesPerView: 1,
+                slidesPerGroup: 1
+
+              },
+              // when window width is >= 768px
+              768: {
+                width: 768,
+                slidesPerView: 3,
+                slidesPerGroup: 3
+              },
+              // when window width is >= 1024px
+              1024: {
+                width: 1024,
+                slidesPerView: 3,
+                slidesPerGroup: 2
+              },
+            }}
           spaceBetween={30}
-          slidesPerGroup={5}
           loop={true}
           loopFillGroupWithBlank={true}
           pagination={{

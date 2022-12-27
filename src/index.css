@@ -209,11 +209,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     background-size: 44px 44px;
     display: flex;
     align-items: center;
-    background-color: #EAB787;
+    background-color: #295760;
     transition: all 80ms ease-out;
     border-radius: 50%;
     background-clip: content-box;
-    color: #757575;
+    color: white;
     opacity: 0.35;
   }
 
@@ -224,10 +224,33 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
   .mySwiper2 .swiper-button-prev:hover, .mySwiper2 .swiper-button-next:hover{
     background-color: #745044;
+    opacity: 0.7;
+
   }
 
   .mySwiper2 .swiper-pagination-bullet-active{
     background: #9A684B;
+  }
+
+  .mySwiper2 .swiper-container {
+    width: 480px;
+  }
+  
+  @media screen and (min-width: 640px) {
+    .mySwiper2 .swiper-container {
+      width: 640px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .mySwiper2 .swiper-container {
+      width: 768px;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .mySwiper2 .swiper-container {
+      width: 1024;
+    }
   }
 
   .mySwiper3 {

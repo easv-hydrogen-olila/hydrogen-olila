@@ -16,7 +16,7 @@ import {
   import ProductGrid from "../../components/product/ProductGrid.client";
   import { PRODUCT_CARD_FRAGMENT } from "../../lib/fragments";
 
-const pageBy = 10
+const pageBy = 50
   
   export default function Collection() {
     const { handle } = useRouteParams();
