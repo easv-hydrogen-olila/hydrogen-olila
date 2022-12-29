@@ -20,8 +20,8 @@ export default function Home() {
 
 function HomepageContent() {
 
-  const data = useShopQuery<{ 
-    herobanners: CollectionConnection, 
+  const data = useShopQuery<{
+    herobanners: CollectionConnection,
     shopcategories: CollectionConnection
     featuredproducts: ProductConnection,
     topproducts: ProductConnection,
@@ -29,7 +29,7 @@ function HomepageContent() {
     query: HOMEPAGE_CONTENT_QUERY,
     cache: CacheLong(),
     preload: true
-  }) 
+  })
 
   const {data: {herobanners, shopcategories, featuredproducts, topproducts}} = data
 
@@ -40,22 +40,22 @@ function HomepageContent() {
   const featuredProductsData = featuredproducts.nodes
   const topProductsData = topproducts.nodes
 
-  
+
 
   return (
     <>
       <Hero {...primaryHero}/>
       <ShopCategories data={shopCategoriesData} styles='bg-[#F9F9F9] py-8'/>
       <div className="container mx-auto">
-        {/* <ProductSlideshow 
-          data={featuredProductsData} 
-          styles='my-4 py-4 px-8 text-clr_navigation'
-          title="Nyheder"
-        /> */}
+          <ProductSlideshow
+            data={featuredProductsData}
+            styles='my-4 py-4 px-8 text-clr_navigation'
+            title="Nyheder"
+          />
       </div>
-        {/* <ProductSlideshow 
+        {/* <ProductSlideshow
           fullWidth
-          data={topProductsData} 
+          data={topProductsData}
           styles='my-4 py-4 px-8 text-clr_navigation bg-[#F9F9F9]'
           title="POPULÆRT I ØJEBLIKKET"
         /> */}

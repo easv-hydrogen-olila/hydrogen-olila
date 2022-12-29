@@ -19,6 +19,7 @@ export default function ProductForm({product}:{product: Product}) {
     
     return (
         <div>
+          <div className='px-4'>
             <Heading component='h3' className='uppercase my-3 text-clr_navigation font-bold text-2xl'>
                 {title}
             </Heading>
@@ -66,8 +67,8 @@ export default function ProductForm({product}:{product: Product}) {
             {/* <DiscloruseMenu/> */}
 
             {/* Product descripion */}
+          </div>
             <div className='bg-clr_grey_bg px-4 py-6 mt-6' dangerouslySetInnerHTML= {{ __html: product.descriptionHtml}} ></div>
-
         </div>
     )
 }

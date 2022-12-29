@@ -21,8 +21,6 @@ export default function ShopCategories({
     if(!haveCollections) return null;
 
     return (
-    //TODO - Section component. React conditional rendering for image. Refactor with categoryCard
-    //TODO - Category card props definition (Image)
         <Section styles={styles}>
             <div className='container px-8 mx-auto'>
                 <Heading component='h3'>{title}</Heading>

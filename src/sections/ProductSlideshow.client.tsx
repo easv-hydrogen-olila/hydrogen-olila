@@ -33,15 +33,17 @@ export default function ProductSlideshow({
 }) {
 
   return (
-    <Section key={`${title}-section`} heading={title} styles={styles} fullWidth>
+    <Section heading={title} styles={styles} fullWidth>
       <div className="mx-auto flex items-center px-8">
-        {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2> */}
           <Swiper
+          // @ts-ignore
+          slidesPerView={1}
           breakpoints={{
             576: {
               // width: 576,
               slidesPerView: 1,
-                          },
+              slidesPerGroup: 1
+            },
             640: {
               // width: 576,
               slidesPerView: 2,
