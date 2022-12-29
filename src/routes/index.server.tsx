@@ -53,12 +53,12 @@ function HomepageContent() {
             title="Nyheder"
           />
       </div>
-        {/* <ProductSlideshow
+        <ProductSlideshow
           fullWidth
           data={topProductsData}
           styles='my-4 py-4 px-8 text-clr_navigation bg-[#F9F9F9]'
           title="POPULÆRT I ØJEBLIKKET"
-        /> */}
+        />
         <FeaturedCollections/>
     </>
   )
