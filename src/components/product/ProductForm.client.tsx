@@ -12,17 +12,9 @@ function classNames(...classes) {
 }
 
 export default function ProductForm({product}:{product: Product}) {
-    const {media, title, vendor, descriptionHtml, id, productType} = product;
-    const {
-      priceV2,
-      compareAtPriceV2,
-      id: variantId,
-      sku,
-      title: variantTitle,
-    } = product.variants.nodes[0];
-    const {options, setSelectedOption, selectedOptions, selectedVariant} = useProductOptions();
-
-
+    const { title } = product;
+    const { priceV2, compareAtPriceV2 } = product.variants.nodes[0];
+    const { selectedVariant } = useProductOptions();
     const isOutOfStock = !selectedVariant?.availableForSale || false;
     
     return (
@@ -32,7 +24,7 @@ export default function ProductForm({product}:{product: Product}) {
             </Heading>
 
             {/* Product variations */}
-            <GridComponent product={product} />
+            <GridComponent key={product.handle} product={product} />
 
             {/* Product price, delivery time and size guide */}
             <div className='grid grid-cols-1 md:grid-cols-2 my-2'>
@@ -74,7 +66,7 @@ export default function ProductForm({product}:{product: Product}) {
             {/* <DiscloruseMenu/> */}
 
             {/* Product descripion */}
-            <div className='bg-clr_grey_bg p-4 my-6' dangerouslySetInnerHTML= {{ __html: product.descriptionHtml}} ></div>
+            <div className='bg-clr_grey_bg px-4 py-6 mt-6' dangerouslySetInnerHTML= {{ __html: product.descriptionHtml}} ></div>
 
         </div>
     )
@@ -82,10 +74,9 @@ export default function ProductForm({product}:{product: Product}) {
 
 export function GridComponent({product}:{product: Product}) {
   const {options, selectedVariant, selectedOptions, setSelectedOption, isOptionInStock} = useProductOptions();
-  console.log(options)
   
   return (
-    <>
+    <div key={product.id}>
       {options?.map(({name, values}) =>{ 
         // When there is no variants
       if (values.length === 1) {
@@ -98,7 +89,7 @@ export function GridComponent({product}:{product: Product}) {
             {values.map((value) =>{
               const checked = selectedOptions![name] === value;
                 return (
-                  <label htmlFor={`option[${name}][${value}]`}>
+                  <label key={`option[${name}]-option[${name}][${value}]`} htmlFor={`option[${name}][${value}]`}>
                     <input
                       type="radio"
                       id={`option[${name}][${value}]`}
@@ -116,7 +107,7 @@ export function GridComponent({product}:{product: Product}) {
                         checked
                           ? 'bg-clr-variant'
                           : 'border-transparent',
-                          'relative border rounded-md py-3 px-3 text-clr_navigation font-semibold bg-clr_variant_dropdown flex items-center justify-center text-sm uppercase hover:ring-2 hover:ring-clr_primary_complement cursor-pointer focus:outline-none sm:flex-1 border-gray-400'
+                          'relative whitespace-nowrap border rounded-md py-3 px-3 text-clr_navigation font-semibold bg-clr_variant_dropdown flex items-center justify-center text-sm uppercase hover:ring-2 hover:ring-clr_primary_complement cursor-pointer focus:outline-none sm:flex-1 border-gray-400'
                       )}
                       >
                       {value}
@@ -129,7 +120,7 @@ export function GridComponent({product}:{product: Product}) {
         </fieldset>
       )}
       )}
-    </>
+    </div>
   );
 }
 

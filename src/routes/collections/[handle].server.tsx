@@ -12,11 +12,11 @@ import {
   import { Layout } from "../../components";
   import {ProductCard} from "../../components";
   import { Suspense } from "react";
-import Section from "../../components/elements/Section";
-import ProductGrid from "../../components/product/ProductGrid.client";
-import { PRODUCT_CARD_FRAGMENT } from "../../lib/fragments";
+  import Section from "../../components/elements/Section";
+  import ProductGrid from "../../components/product/ProductGrid.client";
+  import { PRODUCT_CARD_FRAGMENT } from "../../lib/fragments";
 
-const pageBy = 10
+const pageBy = 50
   
   export default function Collection() {
     const { handle } = useRouteParams();
