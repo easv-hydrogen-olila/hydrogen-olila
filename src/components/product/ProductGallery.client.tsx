@@ -1,5 +1,5 @@
-import {MediaFile} from '@shopify/hydrogen'
-import type {Media} from '@shopify/hydrogen/storefront-api-types'
+import {MediaFile, Image} from '@shopify/hydrogen'
+import type {Image as ImageType, Media} from '@shopify/hydrogen/storefront-api-types'
 
 import React, { useRef, useState } from "react";
 // Import Swiper React components
@@ -16,8 +16,7 @@ import "swiper/css/thumbs";
 // @ts-ignore
 import { Pagination } from "swiper";
 
-export function ProductGallery({media}: {media: Media[]}) {
-    console.log(media)
+export function ProductGallery({media}: {media: ImageType[]}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
         <>
@@ -35,7 +34,7 @@ export function ProductGallery({media}: {media: Media[]}) {
                 {media.map((media) => {
                     return(
                         <SwiperSlide key={`${media.id}-display`}>
-                            <MediaFile data={media} />
+                            <Image data={media} alt={`${media.altText} || 'Image of ${media.id}`}  />
                         </SwiperSlide>
                     )
                 })}
@@ -52,7 +51,7 @@ export function ProductGallery({media}: {media: Media[]}) {
                 {media.map((media) => {
                     return(
                         <SwiperSlide key={`${media.id}-slideshow`}>
-                            <MediaFile data={media} />
+                            <Image data={media}  alt={`${media.altText} || 'Image of ${media.id}`} />
                         </SwiperSlide>
                     )
                 })}

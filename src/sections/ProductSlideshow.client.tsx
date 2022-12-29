@@ -64,8 +64,8 @@ export default function ProductSlideshow({
           className="mySwiper2"
           >
             {data.map((product) => (
-            <SwiperSlide>
-              <ProductCard key={product.id} data={product}/>
+            <SwiperSlide key={product.id}>
+              <ProductCard data={product}/>
             </SwiperSlide>
             ))}
           </Swiper>

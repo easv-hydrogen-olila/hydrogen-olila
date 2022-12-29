@@ -52,49 +52,20 @@ import {
   
   const PRODUCT_QUERY = gql`
   ${PRODUCT_CARD_FRAGMENT}
-    fragment MediaFields on Media {
-      mediaContentType
-      alt
-      previewImage {
-        url
-      }
-      ... on MediaImage {
-        id
-        image {
-          url
-          width
-          height
-        }
-      }
-      ... on Video {
-        id
-        sources {
-          mimeType
-          url
-        }
-      }
-      ... on Model3d {
-        id
-        sources {
-          mimeType
-          url
-        }
-      }
-      ... on ExternalVideo {
-        id
-        embedUrl
-        host
-      }
-    }
+
     query Product($handle: String!) {
       product(handle: $handle) {
         id
         title
         vendor
         descriptionHtml
-        media(first: 7) {
-          nodes {
-            ...MediaFields
+        images(first:100){
+          nodes{
+            id
+            url
+            altText
+            height
+            width
           }
         }
         variants(first: 100) {

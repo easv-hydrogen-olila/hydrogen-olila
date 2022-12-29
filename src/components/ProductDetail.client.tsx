@@ -10,7 +10,7 @@ export function ProductDetail({product}:{product: Product}) {
         <section className='container mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mt-9 md:mb-12'>
                 <section>
-                    <ProductGallery media={product.media.nodes} />
+                    <ProductGallery media={product.images.nodes} />
                 </section>
                 <section>
                     <div>

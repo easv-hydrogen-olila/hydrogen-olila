@@ -24,7 +24,7 @@ export default function ProductForm({product}:{product: Product}) {
             </Heading>
 
             {/* Product variations */}
-            <GridComponent product={product} />
+            <GridComponent key={product.handle} product={product} />
 
             {/* Product price, delivery time and size guide */}
             <div className='grid grid-cols-1 md:grid-cols-2 my-2'>
@@ -76,7 +76,7 @@ export function GridComponent({product}:{product: Product}) {
   const {options, selectedVariant, selectedOptions, setSelectedOption, isOptionInStock} = useProductOptions();
   
   return (
-    <>
+    <div key={product.id}>
       {options?.map(({name, values}) =>{ 
         // When there is no variants
       if (values.length === 1) {
@@ -89,7 +89,7 @@ export function GridComponent({product}:{product: Product}) {
             {values.map((value) =>{
               const checked = selectedOptions![name] === value;
                 return (
-                  <label htmlFor={`option[${name}][${value}]`}>
+                  <label key={`option[${name}]-option[${name}][${value}]`} htmlFor={`option[${name}][${value}]`}>
                     <input
                       type="radio"
                       id={`option[${name}][${value}]`}
@@ -120,7 +120,7 @@ export function GridComponent({product}:{product: Product}) {
         </fieldset>
       )}
       )}
-    </>
+    </div>
   );
 }
 
