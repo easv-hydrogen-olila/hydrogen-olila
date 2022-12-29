@@ -27,7 +27,7 @@ return(
           <Link to={`/products/${handle}`}>
             <div className="h-[100px] md:h-[300px] flex items-stretch aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none">
               {featuredImage && (
-                  <Image
+                  <Image key={`${featuredImage}-${handle}`}
                       data={featuredImage || undefined}
                       alt= {featuredImage.altText || `Image of ${title}`}
                       className="h-full w-full object-cover object-center lg:h-full lg:w-full"

@@ -9,8 +9,10 @@ export function Footer({menu}: {menu?: MenuItem[]}) {
               <FooterMenu menu={menu}/>
             </div>
         </section>
-        <section className='bg-clr_primary px-8 flex flex-col items-center justify-center md:flex-row md:justify-between text-white py-12'>
-            <FooterNewsletter/>
+        <section className='bg-clr_primary '>
+            <div className='mx-auto container'>
+              <FooterNewsletter/>
+            </div>
         </section>
     </>
   )

@@ -232,23 +232,23 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     background: #9A684B;
   }
 
-  .mySwiper2 .swiper-container {
-    width: 480px;
-  }
+  /* .mySwiper2 .swiper-container {
+    width: 640px;
+  } */
   
   @media screen and (min-width: 640px) {
-    .mySwiper2 .swiper-container {
+    .swiper-container {
       width: 640px;
     }
   }
   
   @media screen and (min-width: 768px) {
-    .mySwiper2 .swiper-container {
+    .swiper-container {
       width: 768px;
     }
   }
   @media screen and (min-width: 1024px) {
-    .mySwiper2 .swiper-container {
+    .swiper-container {
       width: 1024;
     }
   }

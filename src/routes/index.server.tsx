@@ -47,18 +47,18 @@ function HomepageContent() {
       <Hero {...primaryHero}/>
       <ShopCategories data={shopCategoriesData} styles='bg-[#F9F9F9] py-8'/>
       <div className="container mx-auto">
-        <ProductSlideshow 
+        {/* <ProductSlideshow 
           data={featuredProductsData} 
           styles='my-4 py-4 px-8 text-clr_navigation'
           title="Nyheder"
-        />
+        /> */}
       </div>
-        <ProductSlideshow 
+        {/* <ProductSlideshow 
           fullWidth
           data={topProductsData} 
           styles='my-4 py-4 px-8 text-clr_navigation bg-[#F9F9F9]'
           title="POPULÆRT I ØJEBLIKKET"
-        />
+        /> */}
         <FeaturedCollections/>
     </>
   )

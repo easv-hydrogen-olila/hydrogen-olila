@@ -16,7 +16,7 @@ import { Pagination, Navigation } from "swiper";
 
 const defaultProducts = new Array(12).fill('')
 
-export default function ProductSwimlane({
+export default function ProductSlideshow({
   //if data prop is empty we set is as an empty array
     data = defaultProducts,
     title = 'HVEM SHOPPER DU TIL?',
@@ -32,46 +32,27 @@ export default function ProductSwimlane({
   fullWidth?: boolean
 }) {
 
-  //REVIEW - useMemo hook https://reactjs.org/docs/hooks-reference.html#usememo
-  // const productCardsMarkup = () => {
-    // if(typeof data === 'object'){
-    //   return <ProductCards products={data}/>
-    // }
-
-    // //If the data provided is only a productId, we will query the productRecommendations API
-    // if(typeof data === 'string'){
-    //   return 'Recommended products'
-    // }
-
-    // return <ProductCards products={data}/>
-  // }
-
   return (
-    <Section heading={title} styles={styles} fullWidth>
+    <Section key={`${title}-section`} heading={title} styles={styles} fullWidth>
       <div className="mx-auto flex items-center px-8">
         {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2> */}
           <Swiper
-            breakpoints={{
-              // when window width is >= 640px
-              640: {
-                width: 640,
-                slidesPerView: 1,
-                slidesPerGroup: 1
-
-              },
-              // when window width is >= 768px
-              768: {
-                width: 768,
-                slidesPerView: 3,
-                slidesPerGroup: 3
-              },
-              // when window width is >= 1024px
-              1024: {
-                width: 1024,
-                slidesPerView: 3,
-                slidesPerGroup: 2
-              },
-            }}
+          breakpoints={{
+            576: {
+              // width: 576,
+              slidesPerView: 1,
+                          },
+            640: {
+              // width: 576,
+              slidesPerView: 2,
+              slidesPerGroup: 2
+            },
+            1024: {
+              // width: 768,
+              slidesPerView: 4,
+              slidesPerGroup: 4
+            },
+          }}
           spaceBetween={30}
           loop={true}
           loopFillGroupWithBlank={true}
@@ -82,11 +63,9 @@ export default function ProductSwimlane({
           modules={[Pagination, Navigation]}
           className="mySwiper2"
           >
-            {/* <ProductCards products={data}/> */}
-
             {data.map((product) => (
             <SwiperSlide>
-              <ProductCard data={product}/>
+              <ProductCard key={product.id} data={product}/>
             </SwiperSlide>
             ))}
           </Swiper>

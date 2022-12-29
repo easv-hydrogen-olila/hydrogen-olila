@@ -38,10 +38,10 @@ export function Layout ({children}) {
         <div className="min-h-screen">
             <Suspense>
               <Header title="Olila" menu={headerMenuItems}/>
+            </Suspense>
               <main role="main" id="mainContent" className="">
                 {children}
               </main>
-            </Suspense>
         </div>
           <Suspense>
             <Footer menu={footerMenuItems}/>

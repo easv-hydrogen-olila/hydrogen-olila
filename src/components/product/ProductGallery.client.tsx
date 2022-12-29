@@ -17,6 +17,7 @@ import "swiper/css/thumbs";
 import { Pagination } from "swiper";
 
 export function ProductGallery({media}: {media: Media[]}) {
+    console.log(media)
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
         <>
@@ -33,7 +34,7 @@ export function ProductGallery({media}: {media: Media[]}) {
             >
                 {media.map((media) => {
                     return(
-                        <SwiperSlide>
+                        <SwiperSlide key={`${media.id}-display`}>
                             <MediaFile data={media} />
                         </SwiperSlide>
                     )
@@ -50,7 +51,7 @@ export function ProductGallery({media}: {media: Media[]}) {
             >
                 {media.map((media) => {
                     return(
-                        <SwiperSlide>
+                        <SwiperSlide key={`${media.id}-slideshow`}>
                             <MediaFile data={media} />
                         </SwiperSlide>
                     )
