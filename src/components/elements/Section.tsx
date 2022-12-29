@@ -21,7 +21,7 @@ export default function Section({
     fullWidth?: boolean
 }) {
   return (
-    <Component className={styles}>
+    <Component className={styles} key={`${heading}-section`}>
         {fullWidth ?( 
             <div className='container mx-auto'>
                 <SectionContent heading={heading}>

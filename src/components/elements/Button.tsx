@@ -24,6 +24,8 @@ const Button: React.FC<Props> = ({
     type, 
     buttonStyle = STYLES[0],
     buttonSize = SIZES[0],
+    ...props
+
 }) => {
 
     //Fall back options in case the style/size isn't defined
@@ -35,6 +37,7 @@ const Button: React.FC<Props> = ({
     <button 
         className={`btn ${checkButtonStyle} ${checkButtonSize} `} 
         type={type}
+        {...props}
     >
         {children}
     </button>

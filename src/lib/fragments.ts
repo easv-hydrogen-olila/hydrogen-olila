@@ -35,3 +35,13 @@ fragment ProductCard on Product{
     }
   }
 `
+export const MENU_ITEM_FRAGMENT = gql`
+fragment MenuItem on MenuItem {
+  id
+  resourceId
+  tags
+  title
+  type
+  url
+}
+`

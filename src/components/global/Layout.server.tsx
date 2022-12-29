@@ -39,21 +39,16 @@ export function Layout ({children}) {
             <Suspense>
               <Header title="Olila" menu={headerMenuItems}/>
             </Suspense>
-            <main role="main" id="mainContent">
-              {children}
-            </main>
-          </div>
+              <main role="main" id="mainContent" className="">
+                {children}
+              </main>
+        </div>
           <Suspense>
             <Footer menu={footerMenuItems}/>
           </Suspense>
         </>
     )
 };
-
-function FooterMenu() {
-  
-}
-
 
 const SHOP_QUERY = gql`
   fragment MenuItem on MenuItem {
@@ -87,6 +82,9 @@ const SHOP_QUERY = gql`
           ...MenuItem
           items{
             ...MenuItem
+            items{
+              ...MenuItem
+            }
           }
         }
       }

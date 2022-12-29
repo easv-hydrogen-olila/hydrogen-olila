@@ -5,7 +5,7 @@ import FeaturedCollections from "../sections/FeaturedCollections";
 import Hero from "../sections/Hero";
 import { Layout } from "../components";
 import ShopCategories from "../sections/ShopCategories";
-import ProductSwimlane from "../sections/ProductSwimlane.server";
+import ProductSlideshow from "../sections/ProductSlideshow.client";
 import {PRODUCT_CARD_FRAGMENT} from "../lib"
 
 export default function Home() {
@@ -13,7 +13,6 @@ export default function Home() {
     <Layout>
       <Suspense>
         <HomepageContent/>
-        <FeaturedCollections/>
       </Suspense>
     </Layout>
   );
@@ -21,8 +20,8 @@ export default function Home() {
 
 function HomepageContent() {
 
-  const data = useShopQuery<{ 
-    herobanners: CollectionConnection, 
+  const data = useShopQuery<{
+    herobanners: CollectionConnection,
     shopcategories: CollectionConnection
     featuredproducts: ProductConnection,
     topproducts: ProductConnection,
@@ -30,39 +29,37 @@ function HomepageContent() {
     query: HOMEPAGE_CONTENT_QUERY,
     cache: CacheLong(),
     preload: true
-  }) 
+  })
 
-  // const {data: {herobanners: {nodes}}} = data
-  // const {data: {shopcategories}} = data
   const {data: {herobanners, shopcategories, featuredproducts, topproducts}} = data
 
   //Hero section fetched data, it's an array since more collections might be added
   const [primaryHero] = herobanners.nodes
   //Shop categories by age range
   const shopCategoriesData = shopcategories.nodes
-
   const featuredProductsData = featuredproducts.nodes
   const topProductsData = topproducts.nodes
 
-  
+
 
   return (
     <>
       <Hero {...primaryHero}/>
+      <ShopCategories data={shopCategoriesData} styles='bg-[#F9F9F9] py-8'/>
       <div className="container mx-auto">
-        <ShopCategories data={shopCategoriesData}/>
-        {/* <ProductSwimlane 
-          data={featuredProductsData} 
-          styles='my-8  text-clr_navigation'
-          title="Nyheder"
-        /> */}
+          <ProductSlideshow
+            data={featuredProductsData}
+            styles='my-4 py-4 px-8 text-clr_navigation'
+            title="Nyheder"
+          />
       </div>
-        {/* <ProductSwimlane 
+        {/* <ProductSlideshow
           fullWidth
-          data={topProductsData} 
-          styles='my-8  text-clr_navigation bg-[#E5E5E5]'
-          title="HVEM SHOPPER DU TIL?"
+          data={topProductsData}
+          styles='my-4 py-4 px-8 text-clr_navigation bg-[#F9F9F9]'
+          title="POPULÆRT I ØJEBLIKKET"
         /> */}
+        <FeaturedCollections/>
     </>
   )
 }
@@ -106,12 +103,12 @@ query homepage {
       }
     }
   }
-  featuredproducts: products(first: 5 query: "tag:Wheat"){
+  featuredproducts: products(first: 15 query: "tag:Wheat"){
     nodes{
       ... ProductCard
     }
   }
-  topproducts: products(first: 5 sortKey: BEST_SELLING){
+  topproducts: products(first: 15 sortKey: BEST_SELLING){
     nodes{
       ...ProductCard
     }

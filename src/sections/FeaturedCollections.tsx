@@ -1,61 +1,91 @@
 import { Link, Image, gql, CacheLong, useShopQuery } from '@shopify/hydrogen'
-import React from 'react'
+import { Menu } from '@shopify/hydrogen/storefront-api-types';
+import { Heading } from '../components/elements/Heading';
+import { getUrlHandle } from '../lib/utils';
+import Collection from '../routes/collections/[handle].server';
 
-
+const POPULAR_BRANDS_MENU_HANDLE = 'popular-brands'
+const POPULAR_CATEGORIES_MENU_HANDLE = 'popular-kategories'
 
 function FeaturedCollections() {
     
     const {
-        data: {collections},
+        data: {brands, categories},
     } = useShopQuery ({
         query: QUERY,
+        variables:{
+          popularBrandsMenuHandle: POPULAR_BRANDS_MENU_HANDLE,
+          popularCategoriesMenuHandle: POPULAR_CATEGORIES_MENU_HANDLE
+        },
         cache: CacheLong(),
     });
+
+    const {items: popularBrands} = brands
+    const {items: popularCategories} = categories
+
   return (
-    <section className="w-full gap-4 md:gap-8 grid p-6 md:p-8 lg:p-12">
-        <h2 className="whitespace-pre-wrap max-w-prose font-bold text-lead">
-        Collections
-        </h2>
-        <div className="grid-flow-row grid gap-2 gap-y-6 md:gap-4 lg:gap-6 grid-cols-1 false  sm:grid-cols-3 false false">
-        {collections.nodes.map((collection) => {
-            return (
-            <Link key={collection.id} to={`/collections/${collection.handle}`}>
-                <div className="grid gap-4">
-                    {collection?.image && (
-                        <Image
-                        className="rounded shadow-border overflow-clip inline-block aspect-[5/4] md:aspect-[3/2] object-cover"
-                        width={"100%"}
-                        height={336}
-                        alt={`Image of ${collection.title}`}
-                        data={collection.image}
-                        />
-                    )}
-                <h2 className="whitespace-pre-wrap max-w-prose font-medium text-copy">
-                    {collection.title}
-                </h2>
-                </div>
-            </Link>
-            );
-        })}
+    <section className='container mx-auto'>
+      <div className='grid grid-cols-1 md:grid-cols-2 px-8 gap-5 text-clr_navigation my-8'>
+        <div className='flex flex-col'>
+          <Heading component='h3' className='font-bold uppercase text-2xl my-2'>
+            Populære mærker
+          </Heading>
+            <ColllectionDetails menus={popularBrands}/>
         </div>
+        <div>
+          <Heading component='h3' className='font-bold uppercase text-2xl my-2'>
+            Populære KATEGORIER
+          </Heading>
+            <ColllectionDetails menus={popularCategories}/>
+        </div>
+      </div>
     </section>
     );
 }
 
+
+function ColllectionDetails({menus}: {menus: Menu}){
+
+  return (
+    <div className='flex flex-col space-y-2'>
+      {menus && (menus.map((menu)=>{
+        let handle = getUrlHandle(menu.url)
+        return(
+          <li className='list-none'>
+            <Link to={`/collections/${handle}`}>
+              {menu.title}
+            </Link>
+          </li>
+        )
+      }))}
+    </div>
+  )
+}
+
 const QUERY = gql`
-  query FeaturedCollections {
-    collections(first: 3, query: "collection_type:smart", sortKey: UPDATED_AT) {
-      nodes {
+fragment MenuItem on MenuItem {
+  id
+  resourceId
+  tags
+  title
+  type
+  url
+}
+query ShopInfo(
+  $popularBrandsMenuHandle: String!
+  $popularCategoriesMenuHandle: String!
+) {
+    brands: menu(handle: $popularBrandsMenuHandle) {
         id
-        title
-        handle
-        image {
-          altText
-          width
-          height
-          url
+        items{
+          ...MenuItem
         }
       }
+    categories: menu(handle: $popularCategoriesMenuHandle) {
+        id
+        items{
+          ...MenuItem
+        }
     }
   }
 `;
