@@ -3,13 +3,6 @@ import { Fragment, useState } from "react"
 import { IconClose } from "../elements/Icon"
 
 
-/**
- * A Drawer component that opens on user click.
- * @param open - Boolean state. If `true`, then the drawer opens.
- * @param onClose - Function should set the open state.
- * @param children - React children node.
- */
-
 export function Drawer({
     open,
     onClose, 
