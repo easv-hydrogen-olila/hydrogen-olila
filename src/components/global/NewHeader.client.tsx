@@ -2,11 +2,12 @@ import { Fragment, useState } from 'react'
 import {Link, Image, useCart} from '@shopify/hydrogen'
 //@ts-ignore
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
-import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { IconAccount, IconCart, IconFavorite, IconSearch } from '../elements/index'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { IconAccount, IconCart, IconSearch } from '../elements/index'
 import { MenuItem } from '@shopify/hydrogen/storefront-api-types'
 import { Drawer, useDrawer } from './Drawer.client'
 import CartDetails from './CartDetails.client'
+import { getUrlHandle } from '../../lib/utils'
 
 
 const SHOP_BANNER_LOGO = 'https://cdn.shopify.com/s/files/1/0677/4017/2569/files/logo-sort_1.png?v=1668592585'
@@ -75,13 +76,16 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
                                 aria-labelledby={`${menu.id}-heading-mobile`}
                                 className="mt-6 flex flex-col space-y-6"
                               >
-                                {menu.items.map((item) => (
+                                {menu.items.map((item) => {
+                                  let handle = getUrlHandle(item.url)
+                                  return (
                                   <li key={item.title} className="flow-root">
-                                    <Link to={item.url} className="-m-2 block p-2 text-gray-500">
+                                    <Link to={`/collections/${handle}`} className="-m-2 block p-2 text-gray-500">
                                       {item.title}
                                     </Link>
                                   </li>
-                                ))}
+                                )}
+                                )}
                               </ul>
                             </div>
                         )))}
@@ -196,13 +200,16 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
                                             className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                           >
                                             { collection.items && (
-                                              collection.items.map((item) => (
-                                              <li key={item.title} className="flex">
-                                                <Link to={item.url} className="hover:text-white hover:underline">
-                                                  {item.title}
-                                                </Link>
-                                              </li>
-                                            )))}
+                                              collection.items.map((item) => {
+                                                let handle = getUrlHandle(item.url)
+                                                return(
+                                                  <li key={item.title} className="flex">
+                                                    <Link to={`/collections/${handle}`} className="hover:text-white hover:underline">
+                                                      {item.title}
+                                                    </Link>
+                                                  </li>
+                                                )
+                                            }))}
                                           </ul>
                                         </div>
                                       ))}
