@@ -43,7 +43,7 @@ const pageBy = 50
         <Suspense>
           <Seo type="collection" data={collection} />
         </Suspense>
-        <Section>
+        <Section styles="bg-clr_grey_bg">
           <ProductGrid
            collection={collection}
            url={`/collection/${handle}`}
