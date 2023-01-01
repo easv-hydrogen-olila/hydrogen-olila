@@ -13,18 +13,16 @@ export default function ProductGrid({collection, url}:{collection: Collection, u
 
 
   return (
-    <div className="bg-clr_grey_bg">
       <div className="mx-auto max-w-2xl mb-36 py-8 px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="uppercase">{title}</h2>
+          <h2 className="uppercase">{title}</h2>
 
-        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {products && (
-            products.map((product) => (
-              <ProductGridCard key={product.id} product={product} />
-            )))}
+          <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            {products && (
+              products.map((product) => (
+                <ProductGridCard key={product.id} product={product} />
+              )))}
+          </div>
         </div>
-        </div>
-      </div>
 
   )
 }

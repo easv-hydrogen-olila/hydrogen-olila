@@ -10,10 +10,12 @@
   "scripts": {
     "dev": "shopify hydrogen dev",
     "build": "shopify hydrogen build",
-    "preview": "shopify hydrogen preview"
+    "preview": "shopify hydrogen preview",
+    "test:tests": "playwright test"
   },
   "devDependencies": {
     "@netlify/hydrogen-platform": "^1.1.2",
+    "@playwright/test": "^1.29.1",
     "@shopify/cli": "3.19.0",
     "@shopify/cli-hydrogen": "3.19.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
