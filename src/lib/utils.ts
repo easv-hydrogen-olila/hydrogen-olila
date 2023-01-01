@@ -11,8 +11,8 @@ export function getVendorFromTitle (title:string) {
 }
 
 export function getUrlHandle(url:string){
-    let urlArray = url.split('/')
-    const handle = urlArray[urlArray.length-1] == '' ? '#': urlArray[urlArray.length-1]
+    let urlArray = url.split(/[/#]/)
+    let handle = urlArray[urlArray.length-1]
 
     return handle
 }

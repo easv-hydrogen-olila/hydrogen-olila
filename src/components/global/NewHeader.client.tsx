@@ -78,9 +78,10 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
                               >
                                 {menu.items.map((item) => {
                                   let handle = getUrlHandle(item.url)
+                                  let handleURL = handle == '' ? '/' : `/collections/${handle}`
                                   return (
                                   <li key={item.title} className="flow-root">
-                                    <Link to={`/collections/${handle}`} className="-m-2 block p-2 text-gray-500">
+                                    <Link to={handleURL} className="-m-2 block p-2 text-gray-500">
                                       {item.title}
                                     </Link>
                                   </li>
@@ -202,9 +203,10 @@ export default function NewHeader({menu}:{menu?: MenuItem[]}) {
                                             { collection.items && (
                                               collection.items.map((item) => {
                                                 let handle = getUrlHandle(item.url)
+                                                let handleURL = handle == '' ? '/' : `/collections/${handle}`
                                                 return(
                                                   <li key={item.title} className="flex">
-                                                    <Link to={`/collections/${handle}`} className="hover:text-white hover:underline">
+                                                    <Link to={handleURL} className="hover:text-white hover:underline">
                                                       {item.title}
                                                     </Link>
                                                   </li>
