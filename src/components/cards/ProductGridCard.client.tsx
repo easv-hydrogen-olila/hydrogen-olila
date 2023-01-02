@@ -21,7 +21,7 @@ export default function ProductGridCard({product}:{
                      <Image
                      data={featuredImage || undefined}
                      alt={featuredImage.altText || `Image of ${title}`}
-                     className="h-full w-full object-cover object-center group-hover:opacity-75"
+                     className="h-full w-full object-cover object-center hover:opacity-75"
                      />
                 </Link>
                 )
