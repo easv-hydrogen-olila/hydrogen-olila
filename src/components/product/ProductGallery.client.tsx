@@ -22,8 +22,8 @@ export function ProductGallery({media}: {media: ImageType[]}) {
         <>
             <Swiper
                 style={{
-                    "--swiper-navigation-color": "#fff",
-                    "--swiper-pagination-color": "#fff",
+                    "--swiper-navigation-color": "#9A684B",
+                    "--swiper-pagination-color": "#9A684B",
                     }}
                 spaceBetween={10}
                 navigation={true}

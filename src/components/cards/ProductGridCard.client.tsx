@@ -17,11 +17,13 @@ export default function ProductGridCard({product}:{
     <div className='relative bg-white p-2 h-full rounded-lg pb-7'>
         <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-white rounded-t-lg xl:aspect-w-7 xl:aspect-h-8">
             {featuredImage && (
-                <Image
-                data={featuredImage || undefined}
-                alt={featuredImage.altText || `Image of ${title}`}
-                className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
+                <Link to={`/products/${handle}`}>
+                     <Image
+                     data={featuredImage || undefined}
+                     alt={featuredImage.altText || `Image of ${title}`}
+                     className="h-full w-full object-cover object-center hover:opacity-75"
+                     />
+                </Link>
                 )
             }
         </div>
