@@ -33,7 +33,7 @@ export function ProductGallery({media}: {media: ImageType[]}) {
             >
                 {media.map((media) => {
                     return(
-                        <SwiperSlide key={`${media.id}-display`}>
+                        <SwiperSlide >
                             <Image data={media} alt={`${media.altText} || 'Image of ${media.id}`}  />
                         </SwiperSlide>
                     )
@@ -50,7 +50,7 @@ export function ProductGallery({media}: {media: ImageType[]}) {
             >
                 {media.map((media) => {
                     return(
-                        <SwiperSlide key={`${media.id}-slideshow`}>
+                        <SwiperSlide>
                             <Image data={media}  alt={`${media.altText} || 'Image of ${media.id}`} />
                         </SwiperSlide>
                     )

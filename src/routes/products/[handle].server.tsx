@@ -13,6 +13,8 @@ import {
   import type { Product, ProductConnection } from '@shopify/hydrogen/storefront-api-types'
   import {PRODUCT_CARD_FRAGMENT} from "../../lib"
   import ProductSlideshow from "../../sections/ProductSlideshow.client";
+  import FeaturedCollections from "../../sections/FeaturedCollections";
+
 
 
   
@@ -48,6 +50,8 @@ import {
             title="POPULÆRT I ØJEBLIKKET"
           />
         </Suspense>
+          <FeaturedCollections/>
+
       </Layout>
     );
   }

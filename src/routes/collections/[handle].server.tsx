@@ -15,6 +15,7 @@ import {
   import Section from "../../components/elements/Section";
   import ProductGrid from "../../components/product/ProductGrid.client";
   import { PRODUCT_CARD_FRAGMENT } from "../../lib/fragments";
+  import FeaturedCollections from "../../sections/FeaturedCollections";
 
 const pageBy = 50
   
@@ -49,36 +50,39 @@ const pageBy = 50
            url={`/collection/${handle}`}
           />
         </Section>
+        <Section>
+          <FeaturedCollections/>
+        </Section>
       </Layout>
     );
   }
 
   // API endpoint that returns paginated products for this collection
 // @see templates/demo-store/src/components/product/ProductGrid.client.tsx
-export async function api(
-  request: HydrogenRequest,
-  {params, queryShop}: HydrogenApiRouteOptions,
-) {
-  if (request.method !== 'POST') {
-    return new Response('Method not allowed', {
-      status: 405,
-      headers: {Allow: 'POST'},
-    });
-  }
-  const url = new URL(request.url);
+// export async function api(
+//   request: HydrogenRequest,
+//   {params, queryShop}: HydrogenApiRouteOptions,
+// ) {
+//   if (request.method !== 'POST') {
+//     return new Response('Method not allowed', {
+//       status: 405,
+//       headers: {Allow: 'POST'},
+//     });
+//   }
+//   const url = new URL(request.url);
 
-  const cursor = url.searchParams.get('cursor');
-  const {handle} = params;
+//   const cursor = url.searchParams.get('cursor');
+//   const {handle} = params;
 
-  return await queryShop({
-    query: PAGINATE_COLLECTION_QUERY,
-    variables: {
-      handle,
-      cursor,
-      pageBy,
-    },
-  });
-}
+//   return await queryShop({
+//     query: PAGINATE_COLLECTION_QUERY,
+//     variables: {
+//       handle,
+//       cursor,
+//       pageBy,
+//     },
+//   });
+// }
   
   const QUERY = gql`
   ${PRODUCT_CARD_FRAGMENT}
