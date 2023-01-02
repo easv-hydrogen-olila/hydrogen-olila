@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
-import {Image, fetchSync} from '@shopify/hydrogen'
+import {Image, Link, fetchSync} from '@shopify/hydrogen'
 import Button from './elements/Button';
 import { IconFacebook, IconInstagram } from './elements/Icon';
 
@@ -57,8 +57,12 @@ export function FooterNewsletter() {
         <div className='flex flex-col my-8'>
           <h3 className='font-bold text-2xl mb-3'>FØLG OS</h3>
           <div className='flex items-center justify-center space-x-2'>
-            <IconFacebook height={40} width={40} fill='white'/>
-            <IconInstagram height={42} width={42} fill='white'/>
+            <Link to={'https://www.facebook.com/olila.dk/'}>
+                <IconFacebook height={40} width={40} fill='white'/>
+            </Link>
+            <Link to={'https://www.instagram.com/olila.dk/?hl=en'}>
+                <IconInstagram height={42} width={42} fill='white'/>
+            </Link>
           </div>
         </div>
     </div>
