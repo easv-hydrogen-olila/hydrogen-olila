@@ -7,18 +7,18 @@ test('has title', async ({ page }) => {
   await expect(page).toHaveTitle(/Olila - Olila/);
 });
 
-// test('get started link', async ({ page }) => {
-//   await page.goto('http://localhost:3000/');
+// test('Go to petit piao category', async ({ page }) => {
+//   await page.goto('https://aesthetic-cocada-7a12ce.netlify.app');
 
-//   // Click the get started link.
+//   Click the get started link.
 //   await page.getByRole('link', { name: 'Petit Piao' }).click()
 
-//   // // Expects the URL to contain intro.
-//   // await expect(page).toHaveURL(/.*maerker-petit-piao/);
+//   // Expects the URL to contain intro.
+//   await expect(page).toHaveURL(/.*maerker-petit-piao/);
 // });
 
-// test('test', async ({ page }) => {
-//   await page.goto('http://localhost:3000/');
+// test('Buy product', async ({ page }) => {
+//   await page.goto('https://aesthetic-cocada-7a12ce.netlify.app');
 //   await page.getByRole('button', { name: 'Tøj & Sko' }).click();
 //   await page.getByRole('list', { name: 'Accessories' }).getByRole('link', { name: 'Hat & Handsker' }).click();
 //   await page.getByRole('link', { name: 'Huttelihut Uld Elefanthue Dino D.grey' }).click();

@@ -26,7 +26,7 @@ export default function ProductGridCard({product}:{
             }
         </div>
         <div className='flex flex-col px-2 items-center bg-white my-2 rounded-b-lg text-[12px] space-y-1 uppercase font-bold text-clr_navigation'>
-            <Link key={id} to={`/products/${handle}`} className="group">
+            <Link to={`/products/${handle}`} className="group">
                 <div className='flex flex-col items-center text-center h-20 hover:underline'>
                     <span className="text-center text-sm">{vendor}</span>
                     <span className="text-center text-sm">{productTitle}</span>

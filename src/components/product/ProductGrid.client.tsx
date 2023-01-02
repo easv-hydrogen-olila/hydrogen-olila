@@ -9,7 +9,6 @@ export default function ProductGrid({collection, url}:{collection: Collection, u
 
   const {title} = collection
   const initialProducts = collection?.products?.nodes || [];
-  const [products, setProducts] = useState<Product[]>(initialProducts);
 
 
   return (
@@ -17,9 +16,9 @@ export default function ProductGrid({collection, url}:{collection: Collection, u
           <h2 className="uppercase">{title}</h2>
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {products && (
-              products.map((product) => (
-                <ProductGridCard key={product.id} product={product} />
+            {initialProducts && (
+              initialProducts.map((product) => (
+                <ProductGridCard key={product.handle} product={product} />
               )))}
           </div>
         </div>

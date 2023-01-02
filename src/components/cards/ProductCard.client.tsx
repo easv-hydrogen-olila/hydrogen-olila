@@ -23,7 +23,7 @@ const ProductCard = ({data}: {data:Product}) => {
     const productVariant = nodes[0]
     
 return(
-        <div key={handle} className="group relative py-3 pb-10">
+        <div className="group relative py-3 pb-10">
           <Link to={`/products/${handle}`}>
             <div className="h-[100px] md:h-[300px] flex items-stretch aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none">
               {featuredImage && (
